@@ -6,7 +6,7 @@ Que vamos a usar
 Quienes conforman el equipo de trabajo de ProDevs se enumeran a continuación:
 1. Laura Lamprea Merchán - Estudiante Ing. Mecatrónica de Bogotá
 2. Andres Felipe Lugo Cardenas - Soy técnico en programación de software, actualmente me encuentro cursando Fundamentos de Programación con Misión tic, tengo conocimiento en Java, PHP, Mysql, HTML, CSS, C ++, Python.
-3.
+3.Juan David Torres Román-Estudiante Ing. Eléctrica de Villavicencio.
 4.
 5.
 
