@@ -10,6 +10,6 @@ Quienes conforman el equipo de trabajo de ProDevs se enumeran a continuación:
 1. Laura Lamprea Merchán - Estudiante Ing. Mecatrónica de Bogotá.
 2. Andres Felipe Lugo Cardenas - Técnico en programación de software de Bogotá.
 3. Juan David Torres Román-Estudiante Ing. Eléctrica de Villavicencio.
-4.
+4. Diego Alejandro Moreno Rozo - Ingeniero en producción de Bogotá.
 5.
 
