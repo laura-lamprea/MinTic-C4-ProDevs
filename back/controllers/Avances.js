@@ -3,7 +3,7 @@ const Avance = require('../models/Avances');
 
 
 const getAvances = async (req, resp = response) => {
-    const avances = await Avance.find().populate("id_project");
+    const avances = await Avance.find().populate("id_Avance");
     resp.status(200).json({
         ok: true,
         msg: 'Lista de Avances',
