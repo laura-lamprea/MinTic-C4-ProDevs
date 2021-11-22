@@ -8,9 +8,14 @@ const AvancesSchema = Schema({
         unique: true
     },
     
-    Avanceident: {
-        type: Date,
-        required: true
+    id_project: {
+        type: String,
+        required: true,
+    },
+
+    date_progress: {
+        type: String,
+        required: true,
     },
 
     descript: {

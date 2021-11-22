@@ -3,22 +3,22 @@ const Avance = require('../models/Avances');
 
 
 const getAvances = async (req, resp = response) => {
-    const Avances = await Avance.find().populate("id_Avance");
+    const avances = await Avance.find().populate("id_project");
     resp.status(200).json({
         ok: true,
         msg: 'Lista de Avances',
-        Avances
+        avances
     })
 }
 
 const setAvance = async (req, resp = response) => {
-    const Avance = new Avance(req.body);
+    const avance = new Avance(req.body);
     try {
-        const av = await Avance.save();
+        const av = await avance.save();
         resp.status(201).json({
             ok: true,
             msg: 'Avance Creado',
-            Avance: av
+            avance: av
         })
 
     } catch (error) {
@@ -36,10 +36,10 @@ const setAvance = async (req, resp = response) => {
 }
 
 const actualizarAvance = async (req, resp = response) => {
-    const AvanceId = req.params.id;
+    const avanceId = req.params.id;
     try {
-        const AvanceActualizado = await Avance.findByIdAndUpdate(AvanceId, req.body, { new: true });
-        console.log(AvanceActualizado);
+        const avanceActualizado = await Avance.findByIdAndUpdate(avanceId, req.body, { new: true });
+        console.log(avanceActualizado);
         resp.json({
             ok: true,
             msg: 'Avance actualizado exitosamente!! ',
