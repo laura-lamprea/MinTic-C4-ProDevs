@@ -1,0 +1,62 @@
+*Crear Collección.
+db.createCollection("Inscripciones")
+db.createCollection("Usuarios")
+db.createCollection("Proyectos")
+db.createCollection("Avances")
+
+
+*codigo apra poblar base de datos en mongo:
+
+--db.collection.insert()
+
+db.Inscripciones.insert(
+	{
+	id_Project:"PO011", 
+	id_users:"US01", 	
+	id_Project:"PO001", 
+	state_inscription:"Recahzada", 		
+	date_admission:"01/01/2021", 
+	egress_date:"10/01/2021"})
+
+db.Usuarios.insert(
+	{
+	email:"laura.lampream@gmail.com", 
+	id_user:"U001", 
+	user:"Pepito Perez", 
+	password:"admin1234", 
+	rol:"Lider", 
+	state_user:"Autorizado"})
+
+db.Proyectos.insert(
+	{
+	id_Project: "PR001",
+	Project:"Proyecto01", 
+	general_Objectives: "Objetivo General", 
+	specific_Objectives: ["Objetivo Especifico 1", "Objetivo Especifico2"], 
+	date_start: "01/01/2021", 
+	date_finish:"31/12/2021", 
+	presupuesto: 50000, 
+	id_users: "U001", 
+	name: "Pepito Perez", 
+	Phase: "null"})
+
+db.Avances.insert(
+	{
+	id_Advance: "AD0011",
+	id_project: "PR001", 
+	date_advance: "15/06/2021", 
+	Description: "Descripcion blabla", 
+	Observaciones:["Observacion 1", "Observacion 2"]
+	 })
+
+
+*codigo apra consultar base de datos en mongo:
+
+db.collection.find()
+
+db.Proyectos.find()
+
+
+
+
+
