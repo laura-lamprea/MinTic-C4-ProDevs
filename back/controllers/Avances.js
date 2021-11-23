@@ -3,7 +3,7 @@ const Avance = require('../models/Avances');
 
 
 const getAvances = async (req, resp = response) => {
-    const avances = await Avance.find().populate("id_Avance");
+    const avances = await Avance.find().populate("descript");
     resp.status(200).json({
         ok: true,
         msg: 'Lista de Avances',
@@ -14,11 +14,11 @@ const getAvances = async (req, resp = response) => {
 const setAvance = async (req, resp = response) => {
     const avance = new Avance(req.body);
     try {
-        const av = await avance.save();
+        const avanceSave = await avance.save();
         resp.status(201).json({
             ok: true,
             msg: 'Avance Creado',
-            avance: av
+            avanceSave
         })
 
     } catch (error) {
@@ -26,13 +26,8 @@ const setAvance = async (req, resp = response) => {
         resp.status(500).json({
             ok: false,
             msg: 'error al crear el avance',
-        })
+        });
     }
-
-    resp.json({
-        ok: true,
-        msg: 'Crear Avance'
-    })
 }
 
 const actualizarAvance = async (req, resp = response) => {

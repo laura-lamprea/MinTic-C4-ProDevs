@@ -56,7 +56,6 @@ const actualizarUsuario = async (req, resp = response) => {
 const eliminarUsuario = async (req, resp = response) => {
     const usuarioId = req.params.id;
     try {
-        // const usuario = await Usuario.findById(usuarioId); 
         await Usuario.findByIdAndDelete(usuarioId);
         resp.json({
             ok: true,
