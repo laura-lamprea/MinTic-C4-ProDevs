@@ -61,10 +61,6 @@ const ProyectoSchema = Schema({
         default: 'Nula'
     },
 
-    
-    idToken: {
-        type: String
-    },
 
 },);
 
