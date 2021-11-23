@@ -13,7 +13,7 @@ const UsuarioSchema = Schema({
         unique: true
     },
     
-    name: {
+    user: {
         type: String,
         required: true
     },
@@ -24,7 +24,8 @@ const UsuarioSchema = Schema({
     },
 
     rol: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Rol',
         required: true,
         default: 'Pendiente'
     },
