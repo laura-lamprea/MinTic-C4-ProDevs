@@ -25,14 +25,14 @@ const InscripcionSchema = Schema({
     },
 
     date_admission: {
-        type: Date,
+        type: String,
         
     },
 
     egress_date: {
-        type: Date,
+        type: String,
     },
 
 },);
 
-module.exports = model('Inscripcion', InscripcionSchema)
+module.exports = model('Inscripciones', InscripcionSchema)
