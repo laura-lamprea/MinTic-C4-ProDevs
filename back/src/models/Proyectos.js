@@ -64,4 +64,4 @@ const ProyectoSchema = Schema({
 
 },);
 
-module.exports = model('Proyecto', ProyectoSchema)
+export default model('Proyecto', ProyectoSchema)
