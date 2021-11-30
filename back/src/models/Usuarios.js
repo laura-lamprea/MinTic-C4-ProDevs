@@ -23,9 +23,15 @@ const UsuarioSchema = Schema({
         required: true
     },
 
+    // rol: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Rol',
+    //     required: true,
+    //     default: 'Pendiente'
+    // },
+
     rol: {
-        type: Schema.Types.ObjectId,
-        ref: 'Rol',
+        type: String,
         required: true,
         default: 'Pendiente'
     },
