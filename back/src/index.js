@@ -1,6 +1,6 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-//import  schema  from "./graphql/schema"; 
+import  schema  from "./graphql/schema"; 
 import { dbConnection } from "./database/config";
 
 const app = express();
@@ -16,7 +16,7 @@ app.use('/api/proyectos', require('./routes/proyectos'));
 app.use('/api/inscripciones', require('./routes/inscripciones'));
 app.use('/api/avances', require('./routes/avances'));
 
-const schema = {};
+//const schema = {};
 app.use('/graphql', graphqlHTTP({
     graphiql: true,
     schema: schema
