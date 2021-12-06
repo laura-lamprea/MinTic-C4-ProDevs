@@ -30,4 +30,4 @@ const AvancesSchema = Schema({
     }
 },);
 
-module.exports = model('Avance', AvancesSchema)
+module.exports = model('Avance', AvancesSchema,"Progress")

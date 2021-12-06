@@ -3,7 +3,6 @@ const { Schema, model } = require('mongoose');
 const UsuarioSchema = Schema({
     email: {
         type: String,
-        //required: true,
         unique: true
     },
 
@@ -20,7 +19,7 @@ const UsuarioSchema = Schema({
 
     password: {
         type: String,
-        //required: true
+        required: true
     },
 
     // rol: {
@@ -33,18 +32,18 @@ const UsuarioSchema = Schema({
     role: {
         type: String,
         //required: true,
-        default: 'Pendiente'
+        default: 'Pending'
     },
 
     state_user: {
         type: String,
         //required: true,
-        default: 'Pendiente'
+        default: 'Pending'
     },
 
-    idToken: {
-        type: String
-    },
+    // idToken: {
+    //     type: String
+    // },
 },);
 
-export default model('Usuario', UsuarioSchema)
+export default model('Usuario', UsuarioSchema,"Users")

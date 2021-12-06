@@ -15,10 +15,10 @@ dbConnection();
 
 app.use(validarJwt);
 
-app.use('/api/usuarios', require('./routes/usuarios'));
-app.use('/api/proyectos', require('./routes/proyectos'));
-app.use('/api/inscripciones', require('./routes/inscripciones'));
-app.use('/api/avances', require('./routes/avances'));
+// app.use('/api/usuarios', require('./routes/usuarios'));
+// app.use('/api/proyectos', require('./routes/proyectos'));
+// app.use('/api/inscripciones', require('./routes/inscripciones'));
+// app.use('/api/avances', require('./routes/avances'));
 
 //const schema = {};
 app.use('/graphql', graphqlHTTP({

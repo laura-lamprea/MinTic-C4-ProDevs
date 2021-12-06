@@ -7,7 +7,6 @@ const typeDefs = `
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]
       Inscripciones : [Inscripcion]
-
     }
 
     type Mutation {
@@ -74,17 +73,19 @@ const typeDefs = `
     }
 
     type Inscripcion {
+      id: ID
       id_inscription: ID,
-      id_user: ID,
-      id_project: ID,
+      id_user: String,
+      name_user: String,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
     input inscripcionInput {
+      id: ID
       id_inscription: ID,
-      id_user: ID,
-      id_project: ID,
+      id_user: String,
+      name_user: String,
       state_inscription: String,
       date_admission: String,
       egress_date: String,

@@ -36,14 +36,11 @@ const ProyectoSchema = Schema({
 
     date_finish: {
         type: String,
-        // type: Date, 
-        // default: Date.now
-        //required: true,
     },
 
-    id_user: {
-        type: String,
-    },
+    // id_user: {
+    //     type: String,
+    // },
 
     // id_user: [{
     //     id_user:Schema.Types.ObjectId,
@@ -55,10 +52,10 @@ const ProyectoSchema = Schema({
     //     ref: 'Usuarios',
     // },
 
-    user: {
-        type: String,
-        //required: true
-    },
+    // user: {
+    //     type: String,
+    //     //required: true
+    // },
 
     state_project: {
         type: String,
@@ -73,4 +70,4 @@ const ProyectoSchema = Schema({
 
 });
 
-export default model('Proyecto', ProyectoSchema)
+export default model('Proyecto', ProyectoSchema,"Projects")
