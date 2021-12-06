@@ -6,6 +6,8 @@ const typeDefs = `
       Proyectos : [Proyecto]
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]
+      Inscripciones : [Inscripcion]
+
     }
 
     type Mutation {
@@ -17,6 +19,10 @@ const typeDefs = `
       addProject(project: proyectoInput): Proyecto
       updateProject(project: proyectoInput): Proyecto
       deleteProject(id:ID!): Proyecto
+
+      addInscription(inscription: inscripcionInput): Inscripcion
+      updateStateInscriptions(inscription: inscripcionInput): Inscripcion
+      deleteIncriptions(id:ID!): Inscripcion
     }
 
     type Usuario {
@@ -65,6 +71,23 @@ const typeDefs = `
       name_user: String,
       state_project: String,
       phase: String,
+    }
+
+    type Inscripcion {
+      id_inscription: ID,
+      id_user: ID,
+      id_project: ID,
+      state_inscription: String,
+      date_admission: String,
+      egress_date: String,
+    }
+    input inscripcionInput {
+      id_inscription: ID,
+      id_user: ID,
+      id_project: ID,
+      state_inscription: String,
+      date_admission: String,
+      egress_date: String,
     }
     type Item {
       item: String

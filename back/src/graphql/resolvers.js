@@ -2,7 +2,7 @@ import bcryp from "bcrypt";
 import Proyectos from "../models/Proyectos";
 import Usuarios from "../models/Usuarios";
 //import Avances from "../models/Avances";
-//import Inscripciones from "../models/Inscripciones";
+import Inscripciones from "../models/Inscripciones";
 import { generarJwt } from "../helpers/jwt";
 
 export const resolvers = {
@@ -20,7 +20,9 @@ export const resolvers = {
             return Proyectos.find();
         },
 
-
+        Inscripciones() {
+            return Inscripciones.find();
+        },
 
         Usuarios() {
             return Usuarios.find();
@@ -44,7 +46,11 @@ export const resolvers = {
                 return "Usuario o contraseña incorrecto";
             }
         }
-    },
+
+      
+
+     },
+    
 
 
     Mutation: {
@@ -91,6 +97,26 @@ export const resolvers = {
             return await Proyectos.findByIdAndDelete(args.id)
         },
 
+        /*Mutation Inscripciones */
+        async addInscription(_, { inscription }) {
+        const unaInscripcion = new Inscripciones(inscription);
+            return await unaInscripcion.save();
+        },
+
+        async updateStateInscriptions(_, { inscription }) {
+            return await Inscripciones.findByIdAndUpdate(inscription.id, 
+                {
+                state_inscription: inscription.state_inscription
+            },
+                { new: true });
+        },
+
+        async deleteIncriptions(_, args) {
+            return await Inscripciones.findByIdAndDelete(args.id)
+        },
 
     }
 }
+
+
+
