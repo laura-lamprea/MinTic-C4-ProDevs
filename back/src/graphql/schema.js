@@ -9,34 +9,56 @@ const typeDefs = `
     }
 
     type Mutation {
-      addProject(project : proyectoInput): Proyecto
-      updateProject(id : proyectoUpInput): ProyectoUp
-      addUser(user : UsuarioInput): Usuario
+      addUser(user: usuarioInput): Usuario
+      updateStateUser(user: usuarioInput): Usuario
+      updateProfileUser(user: usuarioInput): Usuario
+      deleteUser(id:ID!): Usuario
+
+      addProject(project: proyectoInput): Proyecto
+      updateProject(project: proyectoInput): Proyecto
+      deleteProject(id:ID!): Proyecto
     }
 
     type Usuario {
-      id_user: ID,
+      id_user: String,
       name_user: String,
       email: String,
       password: String,
       role: String,
       state_user: String,
     }
-    input UsuarioInput {
-      id_user: ID,
+    input usuarioInput {
+      id: ID,
+      id_user: String,
       name_user: String,
       email: String,
       password: String,
       role: String,
       state_user: String,
     }
+        
 
     type Proyecto {
-      id_project: ID,
+      id: ID,
+      id_project: String,
       project: String,
       general_objectives: String,
       specific_objectives: [Item],
-      budget: String,
+      budget: Int,
+      date_start: String,
+      date_finish: String,
+      id_user: String,
+      name_user: String,
+      state_project: String,
+      phase: String,
+    }
+    input proyectoInput {
+      id: ID,
+      id_project: String,
+      project: String,
+      general_objectives: String,
+      specific_objectives: [ItemInput],
+      budget: Int,
       date_start: String,
       date_finish: String,
       id_user: String,
@@ -50,27 +72,7 @@ const typeDefs = `
     input ItemInput {
       item: String
     }
-    input proyectoInput {
-      id_project: ID,
-      project: String,
-      general_objectives: String,
-      specific_objectives: [ItemInput],
-      budget: String,
-      date_start: String,
-      date_finish: String,
-      id_user: String,
-      name_user: String,
-      state_project: String,
-      phase: String,
-    }
-    type ProyectoUp {
-      id_project: ID
-    }
-    input proyectoUpInput {
-      id: ID
-    }
-
-    
+   
 `;
 
 export default makeExecutableSchema({
