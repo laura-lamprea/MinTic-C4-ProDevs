@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+
 const ProyectoSchema = Schema({
     id_project: {
         type: String,
@@ -12,36 +13,48 @@ const ProyectoSchema = Schema({
         //required: true,
         unique: true
     },
-    
-    general_objectives:{
+
+    general_objectives: {
         type: String,
     },
 
     specific_objectives: [{
-        item:String
+        item: String
     }],
 
     budget: {
-        type: String,
+        type: Number,
         //required: true,
     },
 
     date_start: {
         type: String,
-       // required: true,
+        // type: Date, 
+        // default: Date.now
+        // required: true,
     },
 
     date_finish: {
         type: String,
+        // type: Date, 
+        // default: Date.now
         //required: true,
     },
 
     id_user: {
         type: String,
-       //required: true,
-        unique: true
     },
-    
+
+    // id_user: [{
+    //     id_user:Schema.Types.ObjectId,
+    //     ref: 'Usuarios',
+    // }],
+
+    // id_user: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Usuarios',
+    // },
+
     user: {
         type: String,
         //required: true
@@ -58,6 +71,6 @@ const ProyectoSchema = Schema({
     },
 
 
-},);
+});
 
 export default model('Proyecto', ProyectoSchema)
