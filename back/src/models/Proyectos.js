@@ -1,67 +1,73 @@
 const { Schema, model } = require('mongoose');
 
+
 const ProyectoSchema = Schema({
     id_project: {
         type: String,
-        required: true,
+        //required: true,
         unique: true
     },
 
     project: {
         type: String,
-        required: true,
+        //required: true,
         unique: true
     },
-    
+
     general_objectives: {
         type: String,
-        required: true
     },
 
-    specific_objectives: {
-        type: String,
-        required: true
-    },
+    specific_objectives: [{
+        item: String
+    }],
 
     budget: {
-        type: String,
-        required: true,
+        type: Number,
+        //required: true,
     },
 
     date_start: {
         type: String,
-        required: true,
+        // type: Date, 
+        // default: Date.now
+        // required: true,
     },
 
     date_finish: {
         type: String,
-        required: true,
     },
 
-    id_user: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    
-    user: {
-        type: String,
-        required: true
-    },
+    // id_user: {
+    //     type: String,
+    // },
+
+    // id_user: [{
+    //     id_user:Schema.Types.ObjectId,
+    //     ref: 'Usuarios',
+    // }],
+
+    // id_user: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Usuarios',
+    // },
+
+    // user: {
+    //     type: String,
+    //     //required: true
+    // },
 
     state_project: {
         type: String,
-        required: true,
         default: 'Inactivo'
     },
 
     phase: {
         type: String,
-        required: true,
         default: 'Nula'
     },
 
 
-},);
+});
 
-export default model('Proyecto', ProyectoSchema)
+export default model('Proyecto', ProyectoSchema,"Projects")

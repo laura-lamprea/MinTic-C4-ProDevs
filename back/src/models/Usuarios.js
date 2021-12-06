@@ -3,19 +3,18 @@ const { Schema, model } = require('mongoose');
 const UsuarioSchema = Schema({
     email: {
         type: String,
-        required: true,
         unique: true
     },
 
     id_user: {
         type: String,
-        required: true,
+        //required: true,
         unique: true
     },
     
-    user: {
+    name_user: {
         type: String,
-        required: true
+        //required: true
     },
 
     password: {
@@ -30,22 +29,21 @@ const UsuarioSchema = Schema({
     //     default: 'Pendiente'
     // },
 
-    rol: {
+    role: {
         type: String,
-        required: true,
-        default: 'Pendiente'
+        //required: true,
+        default: 'Pending'
     },
 
     state_user: {
         type: String,
-        required: true,
-        default: 'Pendiente'
+        //required: true,
+        default: 'Pending'
     },
 
-    idToken: {
-        type: String
-    },
-
+    // idToken: {
+    //     type: String
+    // },
 },);
 
-module.exports = model('Usuario', UsuarioSchema)
+export default model('Usuario', UsuarioSchema,"Users")

@@ -10,18 +10,18 @@ const InscripcionSchema = Schema({
     
     id_user: {
         type: String,
-        required: true
+        //required: true
     },
 
     id_project: {
         type: String,
-        required: true
+        //required: true
     },
 
     state_inscription: {
         type: String,
         required: true,
-        enum:['Aceptada', 'Rechazada']        
+        enum:['Accepted', 'Rejected']        
     },
 
     date_admission: {
@@ -35,4 +35,4 @@ const InscripcionSchema = Schema({
 
 },);
 
-module.exports = model('Inscripciones', InscripcionSchema)
+module.exports = model('Inscripcion', InscripcionSchema,"Inscriptions")
