@@ -21,10 +21,14 @@ app.use(validarJwt);
 // app.use('/api/avances', require('./routes/avances'));
 
 //const schema = {};
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', graphqlHTTP((req) => ({
     graphiql: true,
-    schema: schema
-}))
+    schema: schema,
+    context:{
+        user: req.user
+    }
+})));
+
 
 app.listen(4000, () => {
     console.log('Servidor corriendo en el puerto 4000')
