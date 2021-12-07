@@ -7,16 +7,17 @@ import { generarJwt } from "../helpers/jwt";
 
 export const resolvers = {
     Query: {
-
-        Proyectos(_, args, context) {
+        Proyectos() {
+            //Proyectos(_, args, context) {
             //true o false la autenticacion, obliga usar un jwt activo
             // if (context.user.auth) {
-            //     const test  = Proyectos.find().populate()
-
+            //     //const test  = Proyectos.find().populate()
             //     return Proyectos.find();
             // } else {
             //     return null
             // }
+
+            //console.log(context);
             return Proyectos.find();
         },
 
@@ -29,6 +30,8 @@ export const resolvers = {
         },
 
 
+
+
         async Login(_, { email, password }) {
             const usuario = await Usuarios.findOne({
                 email
@@ -38,19 +41,20 @@ export const resolvers = {
             }
             const validarPassword = bcryp.compareSync(password, usuario.password)
             if (validarPassword) {
-                const token = await generarJwt(usuario.id, usuario.nombre)
-                //console.log("Login exitoso")
+                const token = await generarJwt(usuario.id, usuario.name_user)
+                console.log("Login exitoso")
                 return token;
             }
             else {
-                return "Usuario o contraseña incorrecto";
+                console.log("Usuario o contraseña incorrecto")
+                //return "Usuario o contraseña incorrecto";
             }
         }
 
-      
 
-     },
-    
+
+    },
+
 
 
     Mutation: {
@@ -64,6 +68,10 @@ export const resolvers = {
         },
         async updateProfileUser(_, { user }) {
             return await Usuarios.findByIdAndUpdate(user.id, {
+                id_user: user.role,
+                name_user: user.name_user,
+                email: user.email,
+                password: user.password
             },
                 { new: true });
         },
@@ -84,13 +92,13 @@ export const resolvers = {
             return await unProyecto.save();
         },
         async updateProject(_, { project }) {
-            return await Proyectos.findByIdAndUpdate(project.id, 
+            return await Proyectos.findByIdAndUpdate(project.id,
                 {
-                project: project.project,
-                general_objectives: project.general_objectives,
-                specific_objectives: project.specific_objectives,
-                budget: project.budget,
-            },
+                    project: project.project,
+                    general_objectives: project.general_objectives,
+                    specific_objectives: project.specific_objectives,
+                    budget: project.budget,
+                },
                 { new: true });
         },
         async deleteProject(_, args) {
@@ -99,15 +107,15 @@ export const resolvers = {
 
         /*Mutation Inscripciones */
         async addInscription(_, { inscription }) {
-        const unaInscripcion = new Inscripciones(inscription);
+            const unaInscripcion = new Inscripciones(inscription);
             return await unaInscripcion.save();
         },
 
         async updateStateInscriptions(_, { inscription }) {
-            return await Inscripciones.findByIdAndUpdate(inscription.id, 
+            return await Inscripciones.findByIdAndUpdate(inscription.id,
                 {
-                state_inscription: inscription.state_inscription
-            },
+                    state_inscription: inscription.state_inscription,
+                },
                 { new: true });
         },
 

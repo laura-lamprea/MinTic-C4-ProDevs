@@ -13,8 +13,8 @@ export const validarJwt = (req,res,next) =>{
         token = token.slice(7, token.length);
     }
     try {
-        const {uid, nombre} = jwt.verify(token, secret);
-        console.log(uid, nombre);
+        const {uid, name_user} = jwt.verify(token, secret);
+        console.log(uid, name_user);
         req.user = {auth : true};
         return next();
     } catch (error) {

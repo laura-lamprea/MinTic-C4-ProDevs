@@ -25,6 +25,7 @@ const typeDefs = `
     }
 
     type Usuario {
+      id: ID,
       id_user: String,
       name_user: String,
       email: String,
@@ -75,6 +76,7 @@ const typeDefs = `
     type Inscripcion {
       id: ID
       id_inscription: ID,
+      id_project: String,
       id_user: String,
       name_user: String,
       state_inscription: String,
@@ -84,6 +86,7 @@ const typeDefs = `
     input inscripcionInput {
       id: ID
       id_inscription: ID,
+      id_project: String,
       id_user: String,
       name_user: String,
       state_inscription: String,
