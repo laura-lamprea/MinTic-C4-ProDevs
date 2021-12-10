@@ -38,25 +38,15 @@ const ProyectoSchema = Schema({
         type: String,
     },
 
-    // id_user: {
-    //     type: String,
-    // },
+    leader: {
+        Usuario: String,
+    },
 
-    // id_user: [{
-    //     id_user:Schema.Types.ObjectId,
-    //     ref: 'Usuarios',
-    // }],
-
-    // id_user: {
+    // leader: {
     //     type: Schema.Types.ObjectId,
-    //     ref: 'Usuarios',
+    //     ref: "Usuarios"
     // },
-
-    // user: {
-    //     type: String,
-    //     //required: true
-    // },
-
+    
     state_project: {
         type: String,
         default: 'Inactivo'

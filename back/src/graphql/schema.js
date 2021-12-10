@@ -53,8 +53,7 @@ const typeDefs = `
       budget: Int,
       date_start: String,
       date_finish: String,
-      id_user: String,
-      name_user: String,
+      leader: Usuario,
       state_project: String,
       phase: String,
     }
@@ -67,8 +66,7 @@ const typeDefs = `
       budget: Int,
       date_start: String,
       date_finish: String,
-      id_user: String,
-      name_user: String,
+      leader: usuarioInput,
       state_project: String,
       phase: String,
     }
@@ -98,6 +96,8 @@ const typeDefs = `
     }
     input ItemInput {
       item: String
+
+      
     }
    
 `;

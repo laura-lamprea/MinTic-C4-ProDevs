@@ -7,19 +7,25 @@ import { generarJwt } from "../helpers/jwt";
 
 export const resolvers = {
     Query: {
+
         Proyectos() {
-            //Proyectos(_, args, context) {
-            //true o false la autenticacion, obliga usar un jwt activo
+        return Proyectos.find();
+        },
+        
+            // async Proyectos(_, args, context) {
             // if (context.user.auth) {
             //     //const test  = Proyectos.find().populate()
             //     return Proyectos.find();
             // } else {
             //     return null
             // }
+        
 
-            //console.log(context);
-            return Proyectos.find();
-        },
+            // const test = await Proyectos.find()
+            //                              .populate('leader');
+            // console.log('test', test);
+            //return await Proyectos.find().populate('leader');
+        //},
 
         Inscripciones() {
             return Inscripciones.find();
