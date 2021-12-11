@@ -18,40 +18,41 @@ const LoginPage = () => {
         })
         console.log('login');
     }
-
     return (
-        <div className="login">
-            <div className="row">
-                <div className="col-md-6 login-form-1 login-container">
-                    <h3>Ingreso</h3>
-                    <form onSubmit={handleLogin}>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Correo"
-                                name="lEmail"
-                            />
-                        </div>
-                        <div className="form-group mt-2">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Contraseña"
-                                name="lPassword"
-                            />
-                        </div>
-                        <div className="form-group mt-3">
-                            <input
-                                type="submit"
-                                className="btnSubmit" 
-                                value="Login"
-                            />
-                        </div>                        
-                    </form>
+        <main className="mainInicioSesion">
+            <section className="section1NombreEmpresa sectionInicioSesion">
+                <div>
+                    <h1> PRODEVS
+                    </h1>
+                    <p className ="description">Gestión de Proyectos.<br />
+                    Esta plataforma esta diseñada para que gestiones tus proyectos academicos de forma facil e intuitiva.
+                    </p>
                 </div>
-            </div>
-        </div>
+            </section>
+            <section className="section2 sectionInicioSesion">
+                <div className="section2ParteDos">
+                    <h2>Iniciar sesión</h2>
+                    <div className="input">
+                        <i class="fas fa-users estilo"></i>
+                        <h4>¡Bienvenido!</h4>
+                        <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Usuario..." className="input_inicio" required />
+                    </div>
+                    <div className="input">
+                        <i class="fas fa-unlock pad"></i>
+                        <input className="input_inicio" type="password" placeholder="Contraseña..." id="password" required />
+                    </div>
+                    <input type="submit" value="¡Ingresar ahora!" onclick="Funcion()" className="boton boton_ingreso" />
+                    <div>
+                        {/* <LoginButton/> */}
+                    </div>
+                   
+                    {/* <Link to="/Registro">
+
+                        <input type="button" value="¡Registrarse!" name="" className="botonDos boton_registro" />
+                    </Link>  */}
+                </div> 
+            </section>
+        </main>
     )
 }
 

@@ -1,59 +1,129 @@
-.login-container{
-    margin-top: 8%;
-    margin-left: 2%;
-    background-color: white;
-}
-.login-form-1{
-    border-radius: 5px;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    padding: 5%;
-}
-.login-form-1 h3{
-    text-align: center;
-    color: #333;
-}
-.login-form-2{
-    border-radius: 5px;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    padding: 5%;
-    background: #0062cc;
-}
-.login-form-2 h3{
-    text-align: center;
-    color: #fff;
-}
-.login-container form{
-    padding: 10%;
-}
-.btnSubmit
-{
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-}
-.login-form-1 .btnSubmit{
-    color: #fff;
-    background-color: #0062cc;
-}
-.login-form-2 .btnSubmit{
-    background-color: #fff;
-    color: #0062cc;
-}
-.login-form-2 .ForgetPwd{
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-.login-form-1 .ForgetPwd{
-    color: #0062cc;
-    font-weight: 600;
-    text-decoration: none;
+.mainInicioSesion{
+    background-image: url(/src/media/fondoPaginaLogin.jpg);
+    background-size: 100% ;
+    display:flex;
+    height: 100%;
+
 }
 
-.login {
+.sectionInicioSesion{
+    width: 50%;
+    display: inline-flex;
+    margin: 2% 0% 3% 4%;
+
+}
+.section1NombreEmpresa  {
+    font-size: 35px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(29, 157, 195);
+    padding-right: 10%;
+    width: 40%;
+    text-align: center;   
+}
+
+.description {
+    color:black;
+    text-align: center;    
+}
+
+::placeholder{
+    color:rgba(128, 128, 128, 0.664);
+}
+.section2{
+    background-color: white;
+    width: 35%;
+    border-radius: 15px;
+  
+}
+
+#password{
+    margin-left: 9.375px;
+}
+.section2ParteDos{
+    color: rgb(29, 157, 195);
+    padding: 5px 5px;
+    text-align: center;
+}
+.section2ParteDos > h2{
+    font-size: 28px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    float: left;
+    border-bottom: 5px solid rgb(29, 157, 195);
+    margin-bottom: 50px;
+    padding: 13px 0px;
+
+}
+.estilo{
+    color:rgb(29, 157, 195);
+    width: 100px;
+    height: 60px;
+    font-size: 60px;
+    
+}
+.input{
+    width: 100%;
     overflow: hidden;
-    background-image: url('https://www.wearemarketing.com/media/cache/dynamic/rc/rdHgzdry//uploads/media/default/0001/21/0055400d5ced4f6b7007e7985b8e2152f3e32207.jpeg');
-    height: 100vh;
+    font-size: 25px;
+    padding: 8px 8px;
+    border-bottom: 4px solid rgb(29, 157, 195);
+    color: black;
+    text-align: center;
+    
+
+}
+.input input{
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    font-size: 16px;
+    float: left;
+    padding: 5px 5px;
+    margin:  15px 0px 0px 0px;
+
+}
+
+.boton{
+    margin: 30px;
+    border-radius: 15px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: rgb(29, 157, 195);
+    color: white;
+    width: 160px;
+    height: 40px;
+    font-weight: 700;
+
+
+}
+.pad{
+    margin: 12px;
+    float: left;
+}
+.boton:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.contraseña{
+    color:rgb(29, 157, 195);
+}
+.botonDos{
+    margin: 30px;
+    border-radius: 15px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: rgb(89, 192, 89);
+    color: white;
+    width: 160px;
+    height: 40px;
+    font-weight: 700;
+}
+.botonDos:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.2);
 }
