@@ -19,31 +19,19 @@ const UsuarioSchema = Schema({
 
     password: {
         type: String,
-        required: true
+        //required: true
     },
-
-    // rol: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Rol',
-    //     required: true,
-    //     default: 'Pendiente'
-    // },
 
     role: {
         type: String,
-        //required: true,
         default: 'Pending'
     },
 
     state_user: {
         type: String,
-        //required: true,
         default: 'Pending'
     },
 
-    // idToken: {
-    //     type: String
-    // },
 },);
 
 export default model('Usuario', UsuarioSchema,"Users")

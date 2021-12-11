@@ -29,33 +29,37 @@ const ProyectoSchema = Schema({
 
     date_start: {
         type: String,
-        // type: Date, 
-        // default: Date.now
-        // required: true,
+        default: "Null"
     },
 
     date_finish: {
         type: String,
+        default: "Null"
     },
 
     leader: {
-        Usuario: String,
+        type: Schema.Types.ObjectId,
+        ref: "Usuario"
     },
-
-    // leader: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Usuarios"
-    // },
     
     state_project: {
         type: String,
-        default: 'Inactivo'
+        enum:['Active', 'Inactive'], 
+        default: 'Inactive'
     },
 
     phase: {
         type: String,
-        default: 'Nula'
+        enum:['Initiated','In development', 'Completed'],
+        default: 'Null'
     },
+
+    progress:[
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Avance",
+        },
+      ],
 
 
 });
