@@ -2,15 +2,16 @@ const { Schema, model } = require('mongoose');
 
 const AvancesSchema = Schema({
 
-    id_Avance: {
+    id_progress: {
         type: String,
         required: true,
         unique: true
     },
     
     id_project: {
-        type: String,
-        //required: true,
+        type: Schema.Types.ObjectId,
+        ref: "Proyecto",
+        required: true,
     },
 
     date_progress: {
@@ -23,11 +24,9 @@ const AvancesSchema = Schema({
         required: true
     },
 
-    obsers: {
-        type: String,
-        required: false,
-        default: 'Pendiente'
-    }
+    obsers: [{
+        item: String
+    }]
 },);
 
-module.exports = model('Avance', AvancesSchema,"Progress")
+export default model('Avance', AvancesSchema,"Progress")

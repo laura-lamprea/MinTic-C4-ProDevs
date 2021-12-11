@@ -21,14 +21,14 @@ app.use(validarJwt);
 // app.use('/api/avances', require('./routes/avances'));
 
 //const schema = {};
-app.use('/graphql', graphqlHTTP((req) => ({
+// app.use se utiliza para llamar middlewares lo cuales tienen el comando next() después de ejecutarse
+app.use("/graphql", graphqlHTTP((req)=>({
     graphiql: true,
     schema: schema,
-    context:{
+    context: {
         user: req.user
     }
 })));
-
 
 app.listen(4000, () => {
     console.log('Servidor corriendo en el puerto 4000')
