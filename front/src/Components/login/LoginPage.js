@@ -29,9 +29,10 @@ const LoginPage = () => {
                     </p>
                 </div>
             </section>
-            <section className="section2 sectionInicioSesion">
+            <section className="section2 sectionInicioSesion" >
                 <div className="section2ParteDos">
                     <h2>Iniciar sesión</h2>
+                                     
                     <div className="input">
                         <i class="fas fa-users estilo"></i>
                         <h4>¡Bienvenido!</h4>
@@ -41,15 +42,9 @@ const LoginPage = () => {
                         <i class="fas fa-unlock pad"></i>
                         <input className="input_inicio" type="password" placeholder="Contraseña..." id="password" required />
                     </div>
-                    <input type="submit" value="¡Ingresar ahora!" onclick="Funcion()" className="boton boton_ingreso" />
-                    <div>
-                        {/* <LoginButton/> */}
-                    </div>
                    
-                    {/* <Link to="/Registro">
-
-                        <input type="button" value="¡Registrarse!" name="" className="botonDos boton_registro" />
-                    </Link>  */}
+                        <input type="button" value="¡Ingresar ahora!" onClick={handleLogin} className="boton boton_ingreso"  />
+                    
                 </div> 
             </section>
         </main>
