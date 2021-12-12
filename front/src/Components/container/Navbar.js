@@ -39,6 +39,13 @@ const Navbar = () => {
                         Proyectos
                     </NavLink>
 
+                    <NavLink
+                        className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
+                        to="/Registro"
+                    >
+                        Registro
+                    </NavLink>
+
                 </div>
             </div>
 
