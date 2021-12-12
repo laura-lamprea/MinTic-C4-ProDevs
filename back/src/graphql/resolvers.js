@@ -7,17 +7,18 @@ import { generarJwt } from "../helpers/jwt";
 
 export const resolvers = {
     Query: {
-
         async Login(_, { email, password }) {
             const usuario = await Usuarios.findOne({
                 email
+                
             })
+            console.log(usuario)
             if (!usuario) {
                 return "Usuario o contraseña incorrecto";
             }
             const validarPassword = bcryp.compareSync(password, usuario.password)
             if (validarPassword) {
-                const token = await generarJwt(usuario.id, usuario.name_user)
+                const token = await generarJwt(usuario.id, usuario.role)
                 console.log("Login exitoso")
                 return token;
             }
