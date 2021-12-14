@@ -14,7 +14,8 @@ const ContentRoutes = () => {
                     <Routes>
                         {/* <Route path="usuarios/:action" element={<UsuariosPage/>} /> */}
                         <Route path="/users" element={<UsuarioPage />} />
-                        <Route path="/projects" element={<ProyectosPage />} />                       
+                        <Route path="/projects/:action" element={<ProyectosPage />} />      
+                        <Route path="/projects" element={<ProyectosPage />} />                     
                     </Routes>
                 </div>
             </div>

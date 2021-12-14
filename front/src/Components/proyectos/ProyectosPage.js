@@ -1,56 +1,33 @@
 import React from 'react'
-//import { useNavigate } from 'react-router-dom';
-import './proyecto.css';
-import Navbar from '../container/Navbar'
+import { NavLink, useParams } from 'react-router-dom';
+import { ListarProyectos } from './listar/ListarProyectos';
 
 const ProyectosPage = () => {
-
+    const { action } = useParams();
 
     return (
-        <main>
-            <body>
-                <div className="container">
-
-                    <nav class="navbar navbar-light bg-light">
-                        <div class="container-fluid">
-                            
-                            <button type="button" class="btn btn-outline-info">+ New Project</button>
-                            <a class="navbar-brand">PROJECT TABLE </a>
-                            <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
+        <>
+            <section className="content mt-5">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="card card-primary card-outline">
+                                <div className="card-header flex">
+                                    
+                                    <a class="navbar-brand">PROJECT TABLE </a>
+                                    {/* <button type="button" class="btn btn-outline-info" >+ New Project</button> */}
+                                    <NavLink className="btn btn-outline-info" to={`/users`}>+ New Project</NavLink>
+                                </div>
+                                <div className="card-body">
+                                    {action === '' || action === undefined ? <ListarProyectos /> : (action === 'listar') ? <ListarProyectos /> : <ListarProyectos />}
+                                </div>
+                            </div>
                         </div>
-                    </nav>
-
-                    <table class="table table-hover">
-                        <thead >
-                            <tr>
-                                <th>ID</th>
-                                <th>Project</th>
-                                <th>Leader</th>
-                                <th>General objectives</th>
-                                <th>Specific objectives</th>
-                                <th>Budget</th>
-                                <th>Start</th>
-                                <th>Finish</th>
-                                <th>State</th>
-                                <th>Phase</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        
-                    </tbody>
-                    </table>
+                    </div>
                 </div>
-            </body>
-        </main>
+            </section>
+
+        </>
     )
 }
 

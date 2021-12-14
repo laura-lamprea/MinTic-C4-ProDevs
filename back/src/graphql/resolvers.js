@@ -36,9 +36,9 @@ export const resolvers = {
             }
         },
 
-        // Proyectos() {
-        // return Proyectos.find().populate('leader')
-        // },
+        Proyectos() {
+        return Proyectos.find().populate('leader')
+        },
 
         // async Proyectos(_, args, context) {
         //     const test =await Proyectos.find().populate('leader');
@@ -46,23 +46,23 @@ export const resolvers = {
         //     return await Proyectos.find().populate("leader");
         // },
 
-        async Proyectos(_, args, context) {
-            if (context.user.auth) {
-                return await Proyectos.find().populate("leader");
-            } else {
-                return null;
-            }
+        // async Proyectos(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Proyectos.find().populate("leader");
+        //     } else {
+        //         return null;
+        //     }
 
-            // if (context.user.auth && (context.user.role === "Admin")) {
-            //     return await Proyectos.find().populate("leader");
-            // } else if (context.user.auth && (context.user.role === "Leader")) {
-            //     return await Proyectos.find({ leader: context.user.id }).populate("leader");
-            // } else if (context.user.auth && (context.user.role === "Student")) {
-            //     return await Proyectos.find({ state_user: true }).populate("leader");
-            // } else {
-            //     return null;
-            // }
-        },
+        //     // if (context.user.auth && (context.user.role === "Admin")) {
+        //     //     return await Proyectos.find().populate("leader");
+        //     // } else if (context.user.auth && (context.user.role === "Leader")) {
+        //     //     return await Proyectos.find({ leader: context.user.id }).populate("leader");
+        //     // } else if (context.user.auth && (context.user.role === "Student")) {
+        //     //     return await Proyectos.find({ state_user: true }).populate("leader");
+        //     // } else {
+        //     //     return null;
+        //     // }
+        // },
 
         async Inscripciones(_, args, context) {
             if (context.user.auth) {
