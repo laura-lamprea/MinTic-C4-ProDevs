@@ -46,6 +46,20 @@ const Navbar = () => {
                         Registro
                     </NavLink>
 
+                    <NavLink
+                        className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
+                        to="/Inscripciones"
+                    >
+                        Inscripciones
+                    </NavLink>
+
+                    <NavLink
+                        className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
+                        to="/Avances"
+                    >
+                        Avances
+                    </NavLink>
+
                 </div>
             </div>
 
