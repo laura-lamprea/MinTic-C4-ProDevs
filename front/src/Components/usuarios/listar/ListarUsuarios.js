@@ -22,7 +22,7 @@ const ListarUsuarios = () => {
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
                             <th scope="col">Acciones</th>
@@ -32,7 +32,7 @@ const ListarUsuarios = () => {
                         {
                             data.Usuarios.map((usuario, index) => (
                                 <tr key={usuario.id}>
-                                    {/* <th scope="row">{index + 1}</th> */}
+                                    <th scope="row">{index + 1}</th>
                                     <td>{usuario.name_user}</td>
                                     <td>{usuario.email}</td>
                                     <td>
