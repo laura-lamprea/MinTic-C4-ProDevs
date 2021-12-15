@@ -16,6 +16,7 @@ const typeDefs = `
       updateProfileUser(user: usuarioInput): Usuario
       deleteUser(id:ID!): Usuario
 
+      Project1(id:String!): Proyecto
       addProject(project: proyectoInput): Proyecto
       updateProject(project: proyectoInput): Proyecto
       deleteProject(id:ID!): Proyecto
