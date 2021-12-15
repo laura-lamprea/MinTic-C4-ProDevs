@@ -15,7 +15,7 @@ const ProyectosPage = () => {
                                 <div className="card-header flex">
                                     
                                     <a class="navbar-brand">PROJECT TABLE </a>
-                                    {/* <button type="button" class="btn btn-outline-info" >+ New Project</button> */}
+                                    <button type="button" class="btn btn-outline-info" >+ New Project</button>
                                     <NavLink className="btn btn-outline-info" to={`/users`}>+ New Project</NavLink>
                                 </div>
                                 <div className="card-body">

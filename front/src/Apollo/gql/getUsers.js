@@ -2,10 +2,9 @@ import { gql } from '@apollo/client'
 
 const GET_USUARIOS = gql`
         query {            
-            usuarios {
+            Usuarios {
                 id
-                nombre
-                apellido
+                name_user
                 email
             }               
         }

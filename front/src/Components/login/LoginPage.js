@@ -53,38 +53,39 @@ const LoginPage = () => {
                     <p className ="description">Gestión de Proyectos.<br />
                     Esta plataforma esta diseñada para que gestiones tus proyectos academicos de forma facil e intuitiva.
                     </p>
-        {/* <div className="login">
-            <div className="row">
-                <div className="col-md-6 login-form-1 login-container">
-                    <h3>Log in to ProDevs</h3>
-                    <form onSubmit={handleSubmit(HandleLogin)}>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Email"
-                                {...register("email", { required: true })}                                
-                            />
-                        </div>
-                        <div className="form-group mt-2">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Password"
-                                {...register("password", { required: true })}
-                            />
-                        </div>
-                        <div className="form-group mt-3">
-                            <input
-                                type="submit"
-                                className="btnSubmit"
-                                value="Login"
+                    {/* <div className="login">
+                        <div className="row">
+                            <div className="col-md-6 login-form-1 login-container">
+                                <h3>Log in to ProDevs</h3>
+                                <form onSubmit={handleSubmit(HandleLogin)}>
+                                    <div className="form-group">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Email"
+                                            {...register("email", { required: true })}                                
+                                        />
+                                    </div>
+                                    <div className="form-group mt-2">
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            placeholder="Password"
+                                            {...register("password", { required: true })}
+                                        />
+                                    </div>
+                                    <div className="form-group mt-3">
+                                        <input
+                                            type="submit"
+                                            className="btnSubmit"
+                                            value="Login"
 
-                            />
-                        </div>
-                    </form>
+                                        />
+                                    </div>
+                                </form>
 
-                </div> */}
+                            </div> */}
+                </div>
             </section>
             <section className="section2 sectionInicioSesion" >
                 <div className="section2ParteDos">
@@ -100,7 +101,7 @@ const LoginPage = () => {
                         <input className="input_inicio" type="password" placeholder="Contraseña..." id="password" required />
                     </div>
                    
-                        <input type="button" value="¡Ingresar ahora!" onClick={handleLogin} className="boton boton_ingreso"  />
+                        <input type="button" value="¡Ingresar ahora!" onClick={HandleLogin} className="boton boton_ingreso"  />
                     
                 </div> 
             </section>

@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import GET_USUARIOS from '../../../Apollo/gql/getUsaurios';
+import GET_USUARIOS from '../../../Apollo/gql/getUsers';
 
 import '../../usuarios/componentes.css'
 
@@ -22,7 +22,7 @@ const ListarUsuarios = () => {
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
                             <th scope="col">Acciones</th>
@@ -30,10 +30,10 @@ const ListarUsuarios = () => {
                     </thead>
                     <tbody>
                         {
-                            data.usuarios.map((usuario, index) => (
+                            data.Usuarios.map((usuario, index) => (
                                 <tr key={usuario.id}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{usuario.nombre} {usuario.apellido}</td>
+                                    {/* <th scope="row">{index + 1}</th> */}
+                                    <td>{usuario.name_user}</td>
                                     <td>{usuario.email}</td>
                                     <td>
                                         <NavLink className="btn btn-primary mr" to={`/usuarios/${usuario.id}`}>

@@ -28,13 +28,19 @@ export const resolvers = {
             }
         },
 
-        async Usuarios(_, args, context) {
-            if (context.user.auth) {
-                return await Usuarios.find().populate("leader");
-            } else {
-                return null;
-            }
-        },
+        Usuarios() {
+            
+            return Usuarios.find();
+            
+            },
+
+        // async Usuarios(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Usuarios.find().populate("leader");
+        //     } else {
+        //         return null;
+        //     }
+        // },
 
         Proyectos() {
         return Proyectos.find().populate('leader')

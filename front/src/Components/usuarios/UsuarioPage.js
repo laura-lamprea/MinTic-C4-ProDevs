@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useParams } from 'react-router-dom';
-//import '../components.css';
+import '../usuarios/componentes.css';
 
 import CrearUsuario from './crear/CrearUsuario'
 import EditarUsuario from './editar/EditarUsuario';
