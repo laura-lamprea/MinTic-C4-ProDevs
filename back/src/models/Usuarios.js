@@ -6,13 +6,18 @@ const UsuarioSchema = Schema({
         unique: true
     },
 
-    id_user: {
-        type: String,
-        //required: true,
-        unique: true
-    },
+    // id_user: {
+    //     type: String,
+    //     //required: true,
+    //     //unique: true
+    // },
     
     name_user: {
+        type: String,
+        //required: true
+    },
+
+    last_name_user:{
         type: String,
         //required: true
     },
@@ -24,7 +29,8 @@ const UsuarioSchema = Schema({
 
     role: {
         type: String,
-        default: 'Pending'
+        default: 'Pending',
+        enum:['Administrador', 'Lider', 'Estudiante']
     },
 
     state_user: {

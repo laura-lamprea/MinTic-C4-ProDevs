@@ -28,9 +28,9 @@ const typeDefs = `
     }
 
     type Usuario {
-      id: ID,
-      id_user: String,
+      id: ID,      
       name_user: String,
+      last_name_user: String,
       email: String,
       password: String,
       role: String,
@@ -38,8 +38,8 @@ const typeDefs = `
     }
     input usuarioInput {
       id: ID,
-      id_user: String,
       name_user: String,
+      last_name_user: String,
       email: String,
       password: String,
       role: String,

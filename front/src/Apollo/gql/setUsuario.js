@@ -1,20 +1,22 @@
 import { gql } from '@apollo/client'
 
 const SET_USUARIO = gql`
-        mutation setUsuario($nombre: String!, $apellido: String!, $email: String!, $password: String!, $rol: String!) {            
-            crearUsuario(usuario : {
-                nombre: $nombre,
-                apellido: $apellido,
+        mutation setUsuario($name_user: String!, $last_name_user: String!, $email: String!, $password: String!, $role: String!) {            
+            addUser(user:{                
+                name_user: $name_user,
+                last_name_user: $last_name_user,
                 email: $email,
                 password: $password,
-                rol: $rol
+                role: $role                        
             }) {
                 id
-                nombre
-                apellido
-                email 
-            }               
-        }
+                name_user
+                last_name_user
+                email
+                password
+                role
+            }
+            }
     `;
 
 export default SET_USUARIO;
