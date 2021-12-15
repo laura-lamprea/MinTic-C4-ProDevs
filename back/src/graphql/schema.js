@@ -75,16 +75,16 @@ const typeDefs = `
 
     type Inscripcion {
       id: ID
-      id_inscription: String,
-      id_project: String,
+      idproject: Proyecto,
+      student: Usuario,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
     input inscripcionInput {
       id: ID
-      id_inscription: String,
-      id_project: String,
+      idproject: ID,
+      student: ID,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
@@ -92,7 +92,6 @@ const typeDefs = `
 
     type Avance {
       id: ID
-      id_progress: String,
       n_project: Proyecto,
       date_progress: String,
       descript: String,
@@ -100,7 +99,6 @@ const typeDefs = `
     }
     input avanceInput {
       id: ID
-      id_progress: String,
       n_project: ID,
       date_progress: String,
       descript: String,
