@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink, useParams } from 'react-router-dom';
+import CrearProyecto from './crear/CrearProyecto';
 import { ListarProyectos } from './listar/ListarProyectos';
+
 
 const ProyectosPage = () => {
     const { action } = useParams();
@@ -13,13 +15,14 @@ const ProyectosPage = () => {
                         <div className="col-lg-12">
                             <div className="card card-primary card-outline">
                                 <div className="card-header flex">
-                                    
                                     <a class="navbar-brand">PROJECT TABLE </a>
-                                    {/* <button type="button" class="btn btn-outline-info" >+ New Project</button> */}
-                                    <NavLink className="btn btn-outline-info" to={`/users`}>+ New Project</NavLink>
-                                </div>
+                                    
+                                        {/* action !== undefined ? */}
+                                            <NavLink className="btn btn-outline-info" to={`/projects/create`}>+ New Project</NavLink>                                </div>
                                 <div className="card-body">
-                                    {action === '' || action === undefined ? <ListarProyectos /> : (action === 'listar') ? <ListarProyectos /> : <ListarProyectos />}
+                                    {/* {action === '' || action === undefined ? <ListarProyectos /> : (action === 'listar') ? <ListarProyectos /> : <ListarProyectos />} */}
+                                    {action === '' || action === undefined ? <ListarProyectos /> : (action === 'create') ? <CrearProyecto /> : <ListarProyectos />}
+                                    {/* {action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario />} */}
                                 </div>
                             </div>
                         </div>
