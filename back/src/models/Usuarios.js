@@ -6,11 +6,10 @@ const UsuarioSchema = Schema({
         unique: true
     },
 
-    // id_user: {
-    //     type: String,
-    //     //required: true,
-    //     //unique: true
-    // },
+    id_user: {
+        type: String,
+
+    },
     
     name_user: {
         type: String,

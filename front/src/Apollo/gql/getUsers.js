@@ -5,6 +5,7 @@ const GET_USUARIOS = gql`
             Usuarios {
                 id
                 name_user
+                last_name_user
                 email
             }               
         }

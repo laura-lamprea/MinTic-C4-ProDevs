@@ -9,7 +9,6 @@ const SET_USUARIO = gql`
                 password: $password,
                 role: $role                        
             }) {
-                id
                 name_user
                 last_name_user
                 email
