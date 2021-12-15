@@ -1,47 +1,24 @@
 import bcryp from "bcrypt";
 import Proyectos from "../models/Proyectos";
 import Usuarios from "../models/Usuarios";
-//import Avances from "../models/Avances";
+import Avances from "../models/Avances";
 import Inscripciones from "../models/Inscripciones";
 import { generarJwt } from "../helpers/jwt";
 
 export const resolvers = {
     Query: {
-        Proyectos() {
-            //Proyectos(_, args, context) {
-            //true o false la autenticacion, obliga usar un jwt activo
-            // if (context.user.auth) {
-            //     //const test  = Proyectos.find().populate()
-            //     return Proyectos.find();
-            // } else {
-            //     return null
-            // }
-
-            //console.log(context);
-            return Proyectos.find();
-        },
-
-        Inscripciones() {
-            return Inscripciones.find();
-        },
-
-        Usuarios() {
-            return Usuarios.find();
-        },
-
-
-
-
         async Login(_, { email, password }) {
             const usuario = await Usuarios.findOne({
                 email
+                
             })
+            console.log(usuario)
             if (!usuario) {
                 return "Usuario o contraseña incorrecto";
             }
             const validarPassword = bcryp.compareSync(password, usuario.password)
             if (validarPassword) {
-                const token = await generarJwt(usuario.id, usuario.name_user)
+                const token = await generarJwt(usuario.id, usuario.role)
                 console.log("Login exitoso")
                 return token;
             }
@@ -49,10 +26,60 @@ export const resolvers = {
                 console.log("Usuario o contraseña incorrecto")
                 //return "Usuario o contraseña incorrecto";
             }
-        }
+        },
 
+        async Usuarios(_, args, context) {
+            if (context.user.auth) {
+                return await Usuarios.find().populate("leader");
+            } else {
+                return null;
+            }
+        },
 
+        Proyectos() {
+        return Proyectos.find().populate('leader')
+        },
 
+        // async Proyectos(_, args, context) {
+        //     const test =await Proyectos.find().populate('leader');
+        //     console.log('test', test);
+        //     return await Proyectos.find().populate("leader");
+        // },
+
+        // async Proyectos(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Proyectos.find().populate("leader");
+        //     } else {
+        //         return null;
+        //     }
+
+        //     // if (context.user.auth && (context.user.role === "Admin")) {
+        //     //     return await Proyectos.find().populate("leader");
+        //     // } else if (context.user.auth && (context.user.role === "Leader")) {
+        //     //     return await Proyectos.find({ leader: context.user.id }).populate("leader");
+        //     // } else if (context.user.auth && (context.user.role === "Student")) {
+        //     //     return await Proyectos.find({ state_user: true }).populate("leader");
+        //     // } else {
+        //     //     return null;
+        //     // }
+        // },
+
+        async Inscripciones(_, args, context) {
+            if (context.user.auth) {
+                return await Inscripciones.find().populate("leader");
+            } else {
+                return null;
+            }
+        },
+
+        //listar
+        async Avances(_, args, context) {
+            if (context.user.auth) {
+                return await Avances.find().populate("leader");
+            } else {
+                return null;
+            }
+        },
     },
 
 
@@ -123,6 +150,11 @@ export const resolvers = {
             return await Inscripciones.findByIdAndDelete(args.id)
         },
 
+        /*Mutation Avances */
+        async addProgress(_, { progress }) {
+            const unAvance = new Avances(progress);
+            return await unAvance.save();
+        },
     }
 }
 

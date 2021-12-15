@@ -23,49 +23,44 @@ const ProyectoSchema = Schema({
     }],
 
     budget: {
-        type: Number,
+        type: String,
+        //type: Number,
         //required: true,
     },
 
     date_start: {
         type: String,
-        // type: Date, 
-        // default: Date.now
-        // required: true,
+        default: "Null"
     },
 
     date_finish: {
         type: String,
+        default: "Null"
     },
 
-    // id_user: {
-    //     type: String,
-    // },
-
-    // id_user: [{
-    //     id_user:Schema.Types.ObjectId,
-    //     ref: 'Usuarios',
-    // }],
-
-    // id_user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Usuarios',
-    // },
-
-    // user: {
-    //     type: String,
-    //     //required: true
-    // },
-
+    leader: {
+        type: Schema.Types.ObjectId,
+        ref: "Usuario"
+    },
+    
     state_project: {
         type: String,
-        default: 'Inactivo'
+        enum:['Active', 'Inactive'], 
+        default: 'Inactive'
     },
 
     phase: {
         type: String,
-        default: 'Nula'
+        enum:['Initiated','Developing', 'Completed'],
+        default: 'Null'
     },
+
+    // progress:[
+    //     {
+    //       type: Schema.Types.ObjectId,
+    //       ref: "Avance",
+    //     },
+    //   ],
 
 
 });

@@ -3,10 +3,11 @@ import { resolvers } from "./resolvers";
 
 const typeDefs = `
     type Query {
-      Proyectos : [Proyecto]
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]
+      Proyectos : [Proyecto]
       Inscripciones : [Inscripcion]
+      Avances: [Avance]
     }
 
     type Mutation {
@@ -22,6 +23,8 @@ const typeDefs = `
       addInscription(inscription: inscripcionInput): Inscripcion
       updateStateInscriptions(inscription: inscripcionInput): Inscripcion
       deleteIncriptions(id:ID!): Inscripcion
+
+      addProgress(progress: avanceInput): Avance
     }
 
     type Usuario {
@@ -43,18 +46,16 @@ const typeDefs = `
       state_user: String,
     }
         
-
     type Proyecto {
       id: ID,
       id_project: String,
       project: String,
       general_objectives: String,
       specific_objectives: [Item],
-      budget: Int,
+      budget: String,
       date_start: String,
       date_finish: String,
-      id_user: String,
-      name_user: String,
+      leader: Usuario,
       state_project: String,
       phase: String,
     }
@@ -64,35 +65,48 @@ const typeDefs = `
       project: String,
       general_objectives: String,
       specific_objectives: [ItemInput],
-      budget: Int,
+      budget: String,
       date_start: String,
       date_finish: String,
-      id_user: String,
-      name_user: String,
+      leader: ID,
       state_project: String,
       phase: String,
     }
 
     type Inscripcion {
       id: ID
-      id_inscription: ID,
+      id_inscription: String,
       id_project: String,
-      id_user: String,
-      name_user: String,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
     input inscripcionInput {
       id: ID
-      id_inscription: ID,
+      id_inscription: String,
       id_project: String,
-      id_user: String,
-      name_user: String,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
+
+    type Avance {
+      id: ID
+      id_progress: String,
+      n_project: Proyecto,
+      date_progress: String,
+      descript: String,
+      obsers: String,
+    }
+    input avanceInput {
+      id: ID
+      id_progress: String,
+      n_project: ID,
+      date_progress: String,
+      descript: String,
+      obsers: String,
+    }
+
     type Item {
       item: String
     }
