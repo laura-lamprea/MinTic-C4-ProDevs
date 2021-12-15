@@ -23,6 +23,9 @@ const ContentRoutes = () => {
                         <Route path="avances" element={<AvancePage/>} />
                         
                         <Route path="/" element={< UsuarioPage />} />
+                        {/* <Route path="/users" element={<UsuarioPage />} />
+                        <Route path="/projects/:action" element={<ProyectosPage />} />      
+                        <Route path="/projects" element={<ProyectosPage />} />                      */}
                     </Routes>
                 </div>
             </div>

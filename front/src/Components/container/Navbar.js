@@ -19,7 +19,7 @@ const Navbar = () => {
                 className='navbar-brand'
                 to="/"
             >
-                Gestor de Proyectos
+                PRODEVS
             </Link>
 
 
@@ -27,16 +27,16 @@ const Navbar = () => {
                 <div className='navbar-nav'>
                     <NavLink
                         className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
-                        to="/usuarios"
+                        to="/users"
                     >
-                        Usuarios
+                        Users
                     </NavLink>
 
                     <NavLink
                         className={({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '')}
-                        to="/proyectos"
+                        to="/projects"
                     >
-                        Proyectos
+                        Projects
                     </NavLink>
 
                     <NavLink

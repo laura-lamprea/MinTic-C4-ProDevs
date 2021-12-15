@@ -1,12 +1,11 @@
 import jwt from "jsonwebtoken";
 
 const secret = "@mi_llave";
-export const generarJwt = (uid, name_user, email) => {
+export const generarJwt = (uid, role) => {
     return new Promise((resolve, reject) => {
         const payload = {
             uid,
-            name_user,
-            email
+            role
         }
 
         jwt.sign(payload, secret, { expiresIn: "2h" },

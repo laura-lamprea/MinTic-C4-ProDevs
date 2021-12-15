@@ -58,7 +58,6 @@ const typeDefs = `
       leader: Usuario,
       state_project: String,
       phase: String,
-      progress: Avance
     }
     input proyectoInput {
       id: ID,
@@ -72,7 +71,6 @@ const typeDefs = `
       leader: ID,
       state_project: String,
       phase: String,
-      progress: ID
     }
 
     type Inscripcion {
@@ -95,7 +93,7 @@ const typeDefs = `
     type Avance {
       id: ID
       id_progress: String,
-      id_project: Proyecto,
+      n_project: Proyecto,
       date_progress: String,
       descript: String,
       obsers: String,
@@ -103,7 +101,7 @@ const typeDefs = `
     input avanceInput {
       id: ID
       id_progress: String,
-      id_project: ID,
+      n_project: ID,
       date_progress: String,
       descript: String,
       obsers: String,

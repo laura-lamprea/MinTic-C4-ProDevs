@@ -50,16 +50,16 @@ const ProyectoSchema = Schema({
 
     phase: {
         type: String,
-        enum:['Initiated','In development', 'Completed'],
+        enum:['Initiated','Developing', 'Completed'],
         default: 'Null'
     },
 
-    progress:[
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Avance",
-        },
-      ],
+    // progress:[
+    //     {
+    //       type: Schema.Types.ObjectId,
+    //       ref: "Avance",
+    //     },
+    //   ],
 
 
 });
