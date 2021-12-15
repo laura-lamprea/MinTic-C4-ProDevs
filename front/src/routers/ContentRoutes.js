@@ -6,7 +6,8 @@ import DetailsPage from '../Components/details/DetailsPage';
 import InscripcionPage from '../Components/inscripciones/InscripcionPage';
 import ProyectosPage from '../Components/proyectos/ProyectosPage';
 import RegistroPage from '../Components/registro/RegistroPage';
-import UsuarioPage from '../Components/usuarios/UsuarioPage'
+import UsuarioPage from '../Components/usuarios/UsuarioPage';
+import LoginPage from '../Components/login/LoginPage';
 
 
 const ContentRoutes = () => {
@@ -16,13 +17,18 @@ const ContentRoutes = () => {
             <div className="container-fluid">
                 <div className="row">
                     <Routes>
-                        {/* <Route path="usuarios/:action" element={<UsuariosPage/>} /> */}
+                        <Route path="usuarios/:action" element={<UsuarioPage/>} />
                         <Route path="/users" element={<UsuarioPage />} />
                         <Route path="/users/:action" element={<UsuarioPage />} />
                         <Route path="/projects/:action" element={<ProyectosPage />} />      
                         <Route path="/projects" element={<ProyectosPage />} />           
                         <Route path="/inscription" element={<InscripcionPage/>} />   
-                        <Route path="/details" element={<DetailsPage/>} />              
+                        <Route path="/details" element={<DetailsPage/>} /> 
+                        <Route path="/register" element={<RegistroPage/>} /> 
+
+                        <Route path="/" element={< LoginPage />} />
+
+
                     </Routes>
                 </div>
             </div>
