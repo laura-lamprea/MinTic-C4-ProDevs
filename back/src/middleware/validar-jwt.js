@@ -4,7 +4,7 @@ const secret = "@mi_llave";
 export const validarJwt = (req, res, next) => {
     let token = "";
     token = req.headers["x-access-token"] || req.headers["authorization"];
-    console.log("entro")
+   // console.log("entro")
     if (!token) {
         req.user = { auth: false }
         return next();

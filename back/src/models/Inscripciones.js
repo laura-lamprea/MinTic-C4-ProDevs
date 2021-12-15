@@ -2,35 +2,32 @@ const { Schema, model } = require('mongoose');
 
 const InscripcionSchema = Schema({
    
-    id_inscription: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    
-    id_user: {
-        type: String,
-        //required: true
+  
+    student: {
+        type: Schema.Types.ObjectId,
+        ref: "Usuario"
     },
 
-    id_project: {
-        type: String,
-        //required: true
+    idproject: {
+        type: Schema.Types.ObjectId,
+        ref: "Proyecto"
     },
 
     state_inscription: {
         type: String,
-        required: true,
-        enum:['Accepted', 'Rejected']        
+        enum:['Accepted', 'Rejected'],
+        default: "Rejected"       
     },
 
     date_admission: {
         type: String,
+        default: "Null"
         
     },
 
     egress_date: {
         type: String,
+        default: "Null"
     },
 
 },);
