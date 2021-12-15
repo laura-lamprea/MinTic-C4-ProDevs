@@ -50,8 +50,8 @@ const LoginPage = () => {
                 <div>
                     <h1> PRODEVS
                     </h1>
-                    <p className ="description">Gestión de Proyectos.<br />
-                    Esta plataforma esta diseñada para que gestiones tus proyectos academicos de forma facil e intuitiva.
+                    <p className ="description"><br />
+                    This platform is designed for you to manage your academic projects in an easy and intuitive way.
                     </p>
                     {/* <div className="login">
                         <div className="row">
@@ -89,19 +89,19 @@ const LoginPage = () => {
             </section>
             <section className="section2 sectionInicioSesion" >
                 <div className="section2ParteDos">
-                    <h2>Iniciar sesión</h2>
+                    <h2>Log in to Prodevs</h2>
                                      
                     <div className="input">
                         <i class="fas fa-users estilo"></i>
-                        <h4>¡Bienvenido!</h4>
-                        <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Usuario..." className="input_inicio" required />
+                        <h4>¡Welcome!</h4>
+                        <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Email" className="input_inicio" required />
                     </div>
                     <div className="input">
                         <i class="fas fa-unlock pad"></i>
-                        <input className="input_inicio" type="password" placeholder="Contraseña..." id="password" required />
+                        <input className="input_inicio" type="password" placeholder="Password" id="password" required />
                     </div>
                    
-                        <input type="button" value="¡Ingresar ahora!" onClick={HandleLogin} className="boton boton_ingreso"  />
+                        <input type="button" value="Log in with your email" onClick={HandleLogin} className="boton boton_ingreso"  />
                     
                 </div> 
             </section>

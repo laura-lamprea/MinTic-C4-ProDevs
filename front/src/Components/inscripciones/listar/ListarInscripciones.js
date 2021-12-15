@@ -33,8 +33,8 @@ export const ListarInscripciones = () => {
                             data.Inscripciones.map((inscripcion, index) => (
                                 <tr key={inscripcion.id}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{inscripcion.state_inscription}</td>
-                                    <td>{inscripcion.state_inscription}</td>
+                                    <td>{inscripcion.idproject.id_project}</td>
+                                    <td>{inscripcion.student.name_user}</td>
                                     <td>{inscripcion.state_inscription}</td>
                                     <td>{inscripcion.date_admission}</td>
                                     <td>{inscripcion.egress_date}</td>

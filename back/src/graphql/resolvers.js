@@ -46,6 +46,8 @@ export const resolvers = {
         return Proyectos.find().populate('leader')
         },
 
+    
+
         // async Proyectos(_, args, context) {
         //     const test =await Proyectos.find().populate('leader');
         //     console.log('test', test);
@@ -144,6 +146,9 @@ export const resolvers = {
         },
         async deleteProject(_, args) {
             return await Proyectos.findByIdAndDelete(args.id)
+        },
+        async Project1(id) {
+            return await Proyectos.findOne(id)
         },
 
         /*Mutation Inscripciones */

@@ -16,7 +16,7 @@ const DetailsPage = () => {
                             <a class="nav-link active" href="#">Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Inscriptions</a>
+                            <a class="nav-link" href="#"><NavLink  to={`/inscription`}>Inscription</NavLink></a> 
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Progress</a>
@@ -27,19 +27,32 @@ const DetailsPage = () => {
                     </ul>
                 </div>
                 <div class="card-body">
-                    
                     <div class="card" >
                         <div class="card-header">
-                            Project # ....
+                        <a class="navbar-brand">PROJECT # ...</a>
+                            <NavLink className="btn btn-outline-info" to={`/projects/create`}>+ Add me</NavLink>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Objetivos</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
+                        
+                        <div class="card-body">
+                        <p class="font-weight-bold">Project:<input/></p>
+                        <p class="font-weight-bold">Leader:</p>
+                        <p class="font-weight-bold">General objectives:</p>
+                        <p class="font-weight-bold">Specific objectives:</p>
+                        <p class="font-weight-bold">Budget:</p>
+                        </div>
                     </div>
 
-                    <p class="card-text">Enumeracion de los datos del proyecto y boton de inscribirme</p>
+                    <div class="card-header">
+                    <a class="navbar-brand">PROGRESS</a>
+                    </div>
+                    
+                        <div class="card-body">
+                        <p class="font-weight-bold">Project:</p>
+                        <p class="font-weight-bold">Leader:</p>
+                        <p class="font-weight-bold">General objectives:</p>
+                        <p class="font-weight-bold">Specific objectives:</p>
+                        <p class="font-weight-bold">Budget:</p>
+                        </div>
                     <input type="text" placeholder="avance" className='form-control mb-3' />
 
                     <a href="#" class="btn btn-primary">Go somewhere</a>
