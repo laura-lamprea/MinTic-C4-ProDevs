@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, useParams } from 'react-router-dom';
 import '../usuarios/componentes.css';
 
-import CrearUsuario from './crear/CrearUsuario'
+import CrearUsuario from '../registro/RegistroPage'
 import EditarUsuario from './editar/EditarUsuario';
 import ListarUsuarios from './listar/ListarUsuarios';
 
@@ -27,7 +27,7 @@ const UsuariosPage = () => {
                                             Cancelar
                                         </NavLink>
                                         :
-                                        <NavLink className="btn btn-primary mr-3" to={`/Registro`}>
+                                        <NavLink className="btn btn-primary mr-3" to={`/Register`}>
                                             Crear Usuario
                                         </NavLink>
 

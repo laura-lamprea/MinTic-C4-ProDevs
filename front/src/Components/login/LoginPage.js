@@ -72,17 +72,43 @@ const LoginPage = () => {
                         <h4>¡Bienvenido!</h4>
                         <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Usuario..." className="input_inicio" required />
                     </div>
+{/* 
+                    {errors.email?.type === "required" && <div className="alert alert-danger mt-2" role="alert">
+                            el correo es obligatorio
+                        </div>}
+
+                        {errors.email?.type === "pattern" && <div className="alert alert-danger mt-2" role="alert">
+                            el correo no tiene el formto correcto
+                        </div>} */}
+
                     <div className="input">
                         <i class="fas fa-unlock pad"></i>
                         <input className="input_inicio" type="password" placeholder="Contraseña..." id="password" required />
                     </div>
+
+                  
+                        {/* <div className="form-group mt-2">
+                            <input
+                                type="password"
+                                className="form-control"
+                                placeholder="Contraseña"
+                                name="password"
+                                {...register("password", { required: true })}
+                            />
+                        </div>
+
+                        {errors.user && <div className="alert alert-danger mt-2" role="alert">
+                            el password es obligatorio
+                        </div>} */}
                    
                         <input type="button" value="¡Ingresar ahora!" onClick={HandleLogin} className="boton boton_ingreso"  />
                     <div>
                         <i class="fas fa-users estilo"></i>
                         <h5>¿No estas registrado?</h5>
                         <input type="button" value="Registrarme" onClick={HandleLogin2} className="boton boton_ingreso"  />
-                    </div>                    
+                    </div>
+
+
                 </div> 
             </section>
         </main>
