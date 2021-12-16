@@ -16,10 +16,6 @@ app.use(cors());
 
 app.use(validarJwt);
 
-// app.use('/api/usuarios', require('./routes/usuarios'));
-// app.use('/api/proyectos', require('./routes/proyectos'));
-// app.use('/api/inscripciones', require('./routes/inscripciones'));
-// app.use('/api/avances', require('./routes/avances'));
 
 //const schema = {};
 // app.use se utiliza para llamar middlewares lo cuales tienen el comando next() después de ejecutarse

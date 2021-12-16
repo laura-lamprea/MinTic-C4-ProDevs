@@ -28,17 +28,25 @@ export const resolvers = {
             }
         },
 
-        async Usuarios(_, args, context) {
-            if (context.user.auth) {
-                return await Usuarios.find().populate("leader");
-            } else {
-                return null;
-            }
-        },
+        Usuarios() {
+            
+            return Usuarios.find();
+            
+            },
+
+        // async Usuarios(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Usuarios.find().populate("leader");
+        //     } else {
+        //         return null;
+        //     }
+        // },
 
         Proyectos() {
         return Proyectos.find().populate('leader')
         },
+
+    
 
         // async Proyectos(_, args, context) {
         //     const test =await Proyectos.find().populate('leader');
@@ -64,22 +72,30 @@ export const resolvers = {
         //     // }
         // },
 
-        async Inscripciones(_, args, context) {
-            if (context.user.auth) {
-                return await Inscripciones.find().populate("leader");
-            } else {
-                return null;
-            }
-        },
+        Inscripciones() {
+            return Inscripciones.find().populate('idproject').populate('student')   
+            },
+
+        // async Inscripciones(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Inscripciones.find().populate('idproject').populate('student');
+        //     } else {
+        //         return null;
+        //     }
+        // },
 
         //listar
-        async Avances(_, args, context) {
-            if (context.user.auth) {
-                return await Avances.find().populate("leader");
-            } else {
-                return null;
-            }
-        },
+        Avances() {
+            return Avances.find().populate('n_project') 
+            },
+
+        // async Avances(_, args, context) {
+        //     if (context.user.auth) {
+        //         return await Avances.find().populate("leader");
+        //     } else {
+        //         return null;
+        //     }
+        // },
     },
 
 
@@ -130,6 +146,9 @@ export const resolvers = {
         },
         async deleteProject(_, args) {
             return await Proyectos.findByIdAndDelete(args.id)
+        },
+        async Project1(id) {
+            return await Proyectos.findOne(id)
         },
 
         /*Mutation Inscripciones */

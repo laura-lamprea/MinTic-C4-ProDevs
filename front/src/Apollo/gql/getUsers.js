@@ -1,12 +1,14 @@
 import { gql } from '@apollo/client'
 
-const GET_USUARIOS = gql `
-    
-    Executy Query
-    query {
+const GET_USUARIOS = gql`
+        query {            
+            Usuarios {
+                id
+                name_user
+                last_name_user
+                email
+            }               
+        }
+    `;
 
-        
-    }
-
-
-`
+export default GET_USUARIOS;

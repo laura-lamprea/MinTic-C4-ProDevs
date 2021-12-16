@@ -45,41 +45,73 @@ const LoginPage = () => {
 
     }
 
+    const HandleLogin2 = (e) => {
+        
+        navigate('/Register');
+
+    }
+
     return (
-        <div className="login">
-            <div className="row">
-                <div className="col-md-6 login-form-1 login-container">
-                    <h3>Log in to ProDevs</h3>
-                    <form onSubmit={handleSubmit(HandleLogin)}>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Email"
-                                {...register("email", { required: true })}                                
-                            />
-                        </div>
-                        <div className="form-group mt-2">
+        <main className="mainInicioSesion">
+            <section className="section1NombreEmpresa sectionInicioSesion">
+                <div>
+                    <h1> PRODEVS
+                    </h1>
+                    <p className ="description"><br />
+                    This platform is designed for you to manage your academic projects in an easy and intuitive way.
+                    </p>
+            
+                </div>
+            </section>
+            <section className="section2 sectionInicioSesion" >
+                <div className="section2ParteDos">
+                    <h2>Log in to Prodevs</h2>
+                                     
+                    <div className="input">
+                        <i class="fas fa-users estilo"></i>
+                        <h4>¡Welcome!</h4>
+                        <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Email" className="input_inicio" required />
+                    </div>
+{/* 
+                    {errors.email?.type === "required" && <div className="alert alert-danger mt-2" role="alert">
+                            el correo es obligatorio
+                        </div>}
+
+                        {errors.email?.type === "pattern" && <div className="alert alert-danger mt-2" role="alert">
+                            el correo no tiene el formto correcto
+                        </div>} */}
+
+                    <div className="input">
+                        <i class="fas fa-unlock pad"></i>
+                        <input className="input_inicio" type="password" placeholder="Password" id="password" required />
+                    </div>
+
+                  
+                        {/* <div className="form-group mt-2">
                             <input
                                 type="password"
                                 className="form-control"
-                                placeholder="Password"
+                                placeholder="Contraseña"
+                                name="password"
                                 {...register("password", { required: true })}
                             />
                         </div>
-                        <div className="form-group mt-3">
-                            <input
-                                type="submit"
-                                className="btnSubmit"
-                                value="Login"
 
-                            />
-                        </div>
-                    </form>
+                        {errors.user && <div className="alert alert-danger mt-2" role="alert">
+                            el password es obligatorio
+                        </div>} */}
+                   
+                        <input type="button" value="¡Ingresar ahora!" onClick={HandleLogin} className="boton boton_ingreso"  />
+                    <div>
+                        <i class="fas fa-users estilo"></i>
+                        <h5>¿No estas registrado?</h5>
+                        <input type="button" value="Registrarme" onClick={HandleLogin2} className="boton boton_ingreso"  />
+                    </div>
 
-                </div>
-            </div>
-        </div>
+
+                </div> 
+            </section>
+        </main>
     )
 }
 
