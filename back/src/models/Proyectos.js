@@ -40,7 +40,8 @@ const ProyectoSchema = Schema({
 
     leader: {
         type: Schema.Types.ObjectId,
-        ref: "Usuario"
+        ref: "Usuario",
+        
     },
     
     state_project: {

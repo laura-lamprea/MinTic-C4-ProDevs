@@ -6,6 +6,7 @@ const typeDefs = `
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]
       Proyectos : [Proyecto]
+      proyectoById(id: ID!) : Proyecto
       Inscripciones : [Inscripcion]
       Avances: [Avance]
     }
@@ -16,7 +17,7 @@ const typeDefs = `
       updateProfileUser(user: usuarioInput): Usuario
       deleteUser(id:ID!): Usuario
 
-      Project1(id:String!): Proyecto
+    
       addProject(project: proyectoInput): Proyecto
       updateProject(project: proyectoInput): Proyecto
       deleteProject(id:ID!): Proyecto
@@ -96,6 +97,7 @@ const typeDefs = `
     type Avance {
       id: ID
       n_project: Proyecto,
+      student_p:Usuario,
       date_progress: String,
       descript: String,
       obsers: String,
@@ -103,6 +105,7 @@ const typeDefs = `
     input avanceInput {
       id: ID
       n_project: ID,
+      student_p:ID,
       date_progress: String,
       descript: String,
       obsers: String,

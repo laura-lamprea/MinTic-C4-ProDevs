@@ -15,9 +15,9 @@ const RegistroPage = () => {
         console.log("crear");
         console.log(data);
 
-        const { name_user, last_name_user, email, password, role, state_user } = data;
+        const { name_user, email, password, role, state_user } = data;
 
-        addUser({ variables: { name_user, last_name_user, email, password, role, state_user } })
+        addUser({ variables: { name_user, email, password, role, state_user } })
 
 
     }
@@ -37,7 +37,6 @@ const RegistroPage = () => {
                 <div className="form-group">
                     {/* <input type="text"  class="input_field" className='form-control mb-3' placeholder="ID_user" {...register("id_user", { required: true })} />     */}
                     <input type="text"  class="input_field" className='form-control mb-3' placeholder="Nombre" {...register("name_user", { required: true })} />
-                    <input type="text"  class="input_field" className='form-control mb-3' placeholder="Apellido" {...register("last_name_user", { required: true })} />
                     <input type="text"  class="input_field" className='form-control mb-3' placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                     <input type="password"  class="input_field" className='form-control mb-3' placeholder="Password" {...register("password", { required: true })} />
                     <select placeholder=''  class="input_field" className='form-control mb-3' {...register("role", { required: true })}>
