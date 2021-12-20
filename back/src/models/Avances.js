@@ -11,6 +11,12 @@ const AvancesSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: "Proyecto",
     },
+    
+    student_p: {
+        type: Schema.Types.ObjectId,
+        ref: "Usuario",
+    },
+
 
     date_progress: {
         type: String,

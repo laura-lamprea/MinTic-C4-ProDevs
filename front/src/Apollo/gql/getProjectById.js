@@ -1,23 +1,18 @@
 import { gql } from '@apollo/client'
 
-const GET_PROJECTS = gql`
-    query {
-        Proyectos{
+const GET_PROJECT_BY_ID = gql`
+    query ProjectById($id: ID!){
+        proyectoById(id: $id) {
             id
             id_project
-            project
             leader{id_user,name_user}
+            project
             general_objectives
-            specific_objectives {item}
             budget
-            date_start
-            date_finish
             state_project
             phase
-        } 
+        }
     }
 `;
 
-export default GET_PROJECTS;
-
-
+export default GET_PROJECT_BY_ID;

@@ -23,9 +23,9 @@ const ListarUsuarios = () => {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@ const ListarUsuarios = () => {
                             data.Usuarios.map((usuario, index) => (
                                 <tr key={usuario.id}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{usuario.name_user}  {usuario.last_name_user}</td>
+                                    <td>{usuario.name_user} </td>
                                     <td>{usuario.email}</td>
                                     <td>
                                         <NavLink className="btn btn-primary mr" to={`/usuarios/${usuario.id}`}>

@@ -50,6 +50,10 @@ export const resolvers = {
         return Proyectos.find().populate('leader')
         },
 
+        async proyectoById(_, {id}) {
+            return await Proyectos.findById(id).populate('leader');
+        },
+
     
 
         // async Proyectos(_, args, context) {
@@ -145,15 +149,18 @@ export const resolvers = {
                     general_objectives: project.general_objectives,
                     specific_objectives: project.specific_objectives,
                     budget: project.budget,
+                    state_project:project.state_project,
+                    phase:project.phase
                 },
                 { new: true });
         },
+        
         async deleteProject(_, args) {
             return await Proyectos.findByIdAndDelete(args.id)
         },
-        async Project1(id) {
-            return await Proyectos.findOne(id)
-        },
+
+
+    
 
         /*Mutation Inscripciones */
         async addInscription(_, { inscription }) {

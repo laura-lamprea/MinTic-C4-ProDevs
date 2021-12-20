@@ -4,7 +4,7 @@ import { useForm,  useNavigate  } from 'react-hook-form';
 import SET_PROJECT from '../../../Apollo/gql/setProject';
 import GET_PROJECTS from '../../../Apollo/gql/getProjects';
 
-const CrearProyecto = () => {
+const CrearAvance = () => {
 
     const { register, handleSubmit } = useForm();
 
@@ -34,16 +34,9 @@ const CrearProyecto = () => {
     return (
         <form onSubmit={handleSubmit(handleCreate)}>
             <div className="form-group">
-                <input type="text" className='form-control mb-3' placeholder="id_project" {...register("id_project", { required: true })} />
-                <input type="text" className='form-control mb-3' placeholder="project" {...register("project", { required: true })} />
-                <input type="text" className='form-control mb-3' placeholder="general_objectives" {...register("general_objectives", { required: true })} />
-                <input type="text" className='form-control mb-3' placeholder="budget" {...register("budget", { required: true })} />
-                <input type="text" className='form-control mb-3' placeholder="phase" {...register("phase", { required: true })} />
-                {/* <select className='form-control mb-3' {...register("rol", { required: true })}>
-                    <option value="61b3da5944cb44958d979092">lider</option>
-                    <option value="61b3da6a44cb44958d979097">estudiante</option>
-                </select> */}
-
+            <input type="text" className='form-control mb-3' placeholder="Date progress" {...register("id_project", { required: true })} />
+                <input type="text" className='form-control mb-3' placeholder="Descript" {...register("project", { required: true })} />
+                <input type="text" className='form-control mb-3' placeholder="Obsers" {...register("general_objectives", { required: true })} />
             </div>
             <input type="submit" />
 
@@ -51,4 +44,7 @@ const CrearProyecto = () => {
     )
 }
 
-export default CrearProyecto
+export default CrearAvance
+
+
+

@@ -16,10 +16,10 @@ const UsuarioSchema = Schema({
         //required: true
     },
 
-    last_name_user:{
-        type: String,
-        //required: true
-    },
+    // last_name_user:{
+    //     type: String,
+    //     //required: true
+    // },
 
     password: {
         type: String,
@@ -29,7 +29,7 @@ const UsuarioSchema = Schema({
     role: {
         type: String,
         default: 'Pending',
-        enum:['Administrador', 'Lider', 'Estudiante']
+        enum:['Admin', 'Leader', 'Student']
     },
 
     state_user: {

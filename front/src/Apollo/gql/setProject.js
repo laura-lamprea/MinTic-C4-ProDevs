@@ -1,11 +1,11 @@
 import { gql } from '@apollo/client'
 
 const SET_PROJECT = gql`
-    mutation setProject($id_project: String!, $project: String!, $general_objectives: String!, $budget: String!, $phase: String!) {            
+    mutation setProject($id_project: String!, $project: String!,$leader: ID, $general_objectives: String, $budget: String, $phase: String) {            
         addProject(project : {
             id_project: $id_project,
             project: $project,
-            # leader
+            leader:$leader
             general_objectives: $general_objectives,
             # especificos
             budget: $budget,
