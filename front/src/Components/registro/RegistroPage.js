@@ -55,9 +55,9 @@ const RegistroPage = () => {
                     <input type="text"  class="input_field" className='form-control mb-3' placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                     <input type="password"  class="input_field" className='form-control mb-3' placeholder="Password" {...register("password", { required: true })} />
                     <select placeholder=''  class="input_field" className='form-control mb-3' {...register("role", { required: true })}>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Lider">Lider</option>
-                        <option value="Estudiante">Estudiante</option>
+                        <option value="Administrador">Admin</option>
+                        <option value="Leader">Lider</option>
+                        <option value="Student">Estudiante</option>
 
                     </select>
 

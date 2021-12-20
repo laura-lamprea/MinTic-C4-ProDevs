@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-// import { AvancePage } from '../Components/avances/AvancePage';
+import { AvancePage } from '../Components/avances/AvancePage';
 import Navbar from '../Components/container/Navbar';
 
 import InscripcionPage from '../Components/inscripciones/InscripcionPage';
@@ -8,8 +8,6 @@ import ProyectosPage from '../Components/proyectos/ProyectosPage';
 import RegistroPage from '../Components/registro/RegistroPage';
 import UsuarioPage from '../Components/usuarios/UsuarioPage';
 import LoginPage from '../Components/login/LoginPage';
-import EditarUsuario from '../Components/usuarios/editar/EditarUsuario';
-import EditarProyecto from '../Components/proyectos/editar/EditarProyecto';
 import DetailsPage from '../Components/proyectos/listar/DetailsPage';
 
 
