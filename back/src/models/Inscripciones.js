@@ -20,14 +20,14 @@ const InscripcionSchema = Schema({
     },
 
     date_admission: {
-        type: String,
-        default: "Null"
+        type: Date,
+        default: Date.now
         
     },
 
     egress_date: {
-        type: String,
-        default: "Null"
+        type: Date,
+        default: Date.now
     },
 
 },);

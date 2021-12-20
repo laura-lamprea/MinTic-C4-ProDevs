@@ -34,6 +34,10 @@ export const resolvers = {
             
             },
 
+        async UsuarioByID(_,{id}){
+            return await Usuarios.findById(id);
+        },
+
         // async Usuarios(_, args, context) {
         //     if (context.user.auth) {
         //         return await Usuarios.find().populate("leader");

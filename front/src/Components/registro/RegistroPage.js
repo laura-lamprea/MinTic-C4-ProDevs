@@ -1,25 +1,40 @@
 import { useMutation } from '@apollo/client'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
+import GET_USERS from '../../Apollo/gql/setUsuario';
 import SET_USUARIO from '../../Apollo/gql/setUsuario'
 import LogoProdevs from '../media/Logo_ProDevs.png'
 import './Registro.css'
 
 const RegistroPage = () => {
 
+    const navigate = useNavigate();
+
     const { register, handleSubmit } = useForm();
 
-    const [addUser] = useMutation(SET_USUARIO);
+    
+    const [addUser, { data, loading, error}] = useMutation(SET_USUARIO);
 
-    const handleCreate = (data) => {
+    useEffect(() => {
+        if (data) {
+            console.log('data', data);
+            
+            navigate('/users', {
+                replace:true
+            })
+        }
+    }, [data])
+
+    const handleCreate = (args) => {
         console.log("crear");
         console.log(data);
 
-        const { name_user, last_name_user, email, password, role, state_user } = data;
+        const { name_user, last_name_user, email, password, role, state_user } = args;
 
         addUser({ variables: { name_user, last_name_user, email, password, role, state_user } })
 
-
+      
     }
 
     return (

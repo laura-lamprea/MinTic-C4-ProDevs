@@ -34,7 +34,7 @@ const UsuariosPage = () => {
                                 }
                             </div>
                             <div className="card-body">
-                                {action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario />}
+                                {action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario userid ={action} />}
                             </div>
                         </div>
                     </div>

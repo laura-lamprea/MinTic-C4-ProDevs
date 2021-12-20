@@ -5,6 +5,7 @@ const typeDefs = `
     type Query {
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]
+      UsuarioByID(id:ID!): Usuario
       Proyectos : [Proyecto]
       Inscripciones : [Inscripcion]
       Avances: [Avance]
