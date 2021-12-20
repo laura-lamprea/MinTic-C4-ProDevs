@@ -62,16 +62,10 @@ export const ListarProyectos = () => {
                                 <tr key={proyecto.id}>
                                     {/* <th scope="row">{index + 1}</th> */}
                                     <td>{proyecto.id_project}</td>
-                                    <td> {
-                                        <Link to={`/details/${proyecto.id}`}>{proyecto.project}</Link>   }</td>                                                                     
+                                    <td> {<Link to={`/details/${proyecto.id}`}>{proyecto.project}</Link>   }</td>                                                                     
                                 
-                                    {/* <td><button type="button" class="btn btn-link">{proyecto.project}</button> </td> */}
+                      
                                     <td>{proyecto.leader.name_user}</td>
-                                    
-                                    {/* {
-                                        console.log(proyecto.specific_objectives.item)
-                                     }
-                                    */}
                                     <td>{proyecto.date_start}</td>
                                     <td>{proyecto.date_finish}</td>
                                     <td>{proyecto.state_project}</td>

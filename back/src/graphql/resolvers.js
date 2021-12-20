@@ -119,10 +119,12 @@ export const resolvers = {
         },
         async updateProfileUser(_, { user }) {
             return await Usuarios.findByIdAndUpdate(user.id, {
-                id_user: user.role,
+                id_user: user.id_user,
                 name_user: user.name_user,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                role: user.role,
+                state_user: user.state_user
             },
                 { new: true });
         },

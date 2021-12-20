@@ -1,16 +1,18 @@
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import GET_USER_BY_ID from '../../../Apollo/gql/getUsuarioById';
-import UPDATE_USER from '../../../Apollo/gql/'
+import UPDATE_USER from '../../../Apollo/gql/updateUsers'
+
 
 
 const EditarUsuario = ({ userid }) => {
 
-    //console.log('userid', userid);
+    console.log('userid', userid);
 
     const { register, handleSubmit } = useForm();
     const { loading, data, error } = useQuery(GET_USER_BY_ID, { variables: { id: userid } });
+    const [updateUsers] = useMutation(UPDATE_USER, {variables: { id: userid }});
 
     const handleUpdate = (args) => {
         const { id_user, name_user, last_name_user, email, password, role, state_user } = args;
@@ -29,7 +31,7 @@ const EditarUsuario = ({ userid }) => {
                     <input type="text" className='form-control mb-3' defaultValue={data.UsuarioById.last_name_user} placeholder="Apellido" {...register("last_name_user", { required: true })} />
                     <input type="text" className='form-control mb-3' defaultValue={data.UsuarioById.email} placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                     <input type="password" className='form-control mb-3' defaultValue={data.UsuarioById.password} placeholder="Password" {...register("password", { required: true })} />
-                    <select className='form-control mb-3' {...register("rol", { required: true })}>
+                    <select className='form-control mb-3' {...register("role", { required: true })}>
                         <option>Admin</option>
                         <option >Leader</option>
                         <option >Student</option>
