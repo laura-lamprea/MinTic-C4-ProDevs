@@ -4,10 +4,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Link, NavLink, useParams } from 'react-router-dom'
 import GET_PROJECTS from '../../../Apollo/gql/getProjects';
 import DELETE_PROJECT from '../../../Apollo/gql/deleteProject';
-import UPDATE_PROJECT from '../../../Apollo/gql/updateProjects';
-import EditarProyecto from '../editar/EditarProyecto';
-import DetailsPage from './DetailsPage';
-
+import Modal from 'react-modal';
 
 export const ListarProyectos = () => {
 
@@ -16,28 +13,43 @@ export const ListarProyectos = () => {
     const { loading, data, error } = useQuery(GET_PROJECTS);
     const [deleteProject] = useMutation(DELETE_PROJECT);
 
-    // const [deleteProject] = useMutation(DELETE_PROJECT, {
-    //     refetchQueries: [{
-    //         query: DELETE_PROJECT
-    //     }]
-    // });
-
     const handleDelete = (id) => {
-
         console.log(action);
-        // const { id } = data;
-        // deleteProject({ variables: { id } });
-        // const { id } = data;
         deleteProject({ variables: { id } });
     }
-  
-  
-   
+
+
+
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+        },
+    };
+
+
     return (
 
         <>
+
             {loading && <p>Cargando ...</p>}
             {error && <p>Se ha producido un error</p>}
+
             {
                 data &&
 
@@ -47,7 +59,7 @@ export const ListarProyectos = () => {
                             <th scope="col">ID</th>
                             <th>Project</th>
                             <th>Leader</th>
-                           
+
                             <th>Start</th>
                             <th>Finish</th>
                             <th>State</th>
@@ -63,11 +75,11 @@ export const ListarProyectos = () => {
                                     {/* <th scope="row">{index + 1}</th> */}
                                     <td>{proyecto.id_project}</td>
                                     <td> {
-                                        <Link to={`/details/${proyecto.id}`}>{proyecto.project}</Link>   }</td>                                                                     
-                                
+                                        <Link to={`/details/${proyecto.id}`}>{proyecto.project}</Link>}</td>
+
                                     {/* <td><button type="button" class="btn btn-link">{proyecto.project}</button> </td> */}
                                     <td>{proyecto.leader.name_user}</td>
-                                    
+
                                     {/* {
                                         console.log(proyecto.specific_objectives.item)
                                      }
@@ -78,24 +90,17 @@ export const ListarProyectos = () => {
                                     <td>{proyecto.phase}</td>
                                     <td>
                                         <ul class="list-inline m-0">
-                                            {/* <NavLink className="btn btn-primary mr" to={`/inscription`}>Add me</NavLink> */}
-                                            {/* <NavLink className="btn btn-success" to={`/proyecto/${proyecto.id}`}>Edit</NavLink> */}
                                             <li class="list-inline-item">
-                                                <Link to={`/users`}>
-                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add me"><i class="fa fa-table"></i></button>
-                                                </Link>
+                                                <button class="btn btn-primary btn-sm rounded-0" onClick={openModal} type="button" data-toggle="tooltip" data-placement="top" title="Add me"><i class="fa fa-table"></i></button>
                                             </li>
                                             <li class="list-inline-item">
                                                 <Link to={`/projects/${proyecto.id}`}>
-                                                    <button class="btn btn-success btn-sm rounded-0" type="button"  data-placement="top" title="Edit" ><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" title="Edit" ><i class="fa fa-edit"></i></button>
                                                 </Link>
                                             </li>
                                             <li class="list-inline-item">
-                                                {/* <Link to={`/users`}> */}
                                                 <button class="btn btn-danger btn-sm rounded-0" type="button" onClick={() => handleDelete(proyecto.id)} data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                                {/* </Link> */}
                                             </li>
-                                            {/* <button type="button" className="btn btn btn-danger mr-3" onClick={() => handleDelete(proyecto.id)}>Delete</button> */}
                                         </ul>
                                     </td>
                                 </tr>
@@ -108,7 +113,29 @@ export const ListarProyectos = () => {
 
             }
 
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+            >
+                <h4>Hello Student!</h4>
+                <h5>Would you like to join this project?</h5>
+
+                <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-success">Add me!</button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-danger" onClick={closeModal} >close</button>
+                    </li>
+                </ul>
+
+            </Modal>
+
         </>
+
 
     )
 }
