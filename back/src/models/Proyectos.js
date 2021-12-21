@@ -52,7 +52,7 @@ const ProyectoSchema = Schema({
 
     phase: {
         type: String,
-        enum:['Initiated','Developing', 'Completed'],
+        enum:['Initiated','Developing', 'Completed','Null'],
         default: 'Null'
     },
 

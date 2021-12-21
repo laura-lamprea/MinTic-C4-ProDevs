@@ -31,8 +31,6 @@ const ProyectosPage = () => {
                                 </div>
                                 <div className="card-body">
                                     {action === '' || action === undefined ? <ListarProyectos /> : (action === 'create') ? <CrearProyecto /> : <EditarProyecto projectid={action} />}
-                                    {/* {action === '' || action === undefined ? <ListarProyectos /> : (action === 'create') ? <CrearProyecto /> : <DetailsPage projectid={action}/> } */}
-
                                 </div>
                             </div>
                         </div>

@@ -79,16 +79,18 @@ export const typeDefs = `
     }
 
     type Inscripcion {
-      id: ID
-      idproject: Proyecto,
+      id: ID,
+      id_inscription: String,
+      id_Dproject: Proyecto,
       student: Usuario,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
     input inscripcionInput {
-      id: ID
-      idproject: ID,
+      id: ID,
+      id_inscription: String,
+      id_Dproject: ID,
       student: ID,
       state_inscription: String,
       date_admission: String,

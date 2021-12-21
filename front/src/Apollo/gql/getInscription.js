@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 const GET_INSCRIPTION = gql`
     query {
         Inscripciones{
-            idproject{id_project}
+            id_Dproject{id_project}
             student{name_user}
             state_inscription
             date_admission

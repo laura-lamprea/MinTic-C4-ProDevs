@@ -41,7 +41,7 @@ export const DetailsPage = ({projectid}) => {
 
                             <div class="card-body">
                                 <p class="font-weight-bold">Project: {data.proyectoById.project}</p>
-                                <p class="font-weight-bold">Leader: {data.proyectoById.leader.name_user}</p>
+                                <p class="font-weight-bold">Leader: {data.proyectoById.leader.name_user}{data.proyectoById.leader.last_name_user}</p>
                                 <p class="font-weight-bold">General objectives:{data.proyectoById.general_objectives}</p>
                                 <p class="font-weight-bold">Specific objectives: {data.proyectoById.project}</p>
                                 <p class="font-weight-bold">Budget:{data.proyectoById.project}</p>
