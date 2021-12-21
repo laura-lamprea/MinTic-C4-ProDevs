@@ -1,11 +1,9 @@
-import { makeExecutableSchema } from '@graphql-tools/schema'
-import { graphql } from 'graphql'
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import { dbConnection } from "../../database/config";
 import { resolvers } from "../../graphql/resolvers";
 import { typeDefs } from "../../graphql/schema";
-
-
 import dotenv from "dotenv";
+import { graphql } from 'graphql';
 dotenv.config();
 
 
@@ -58,7 +56,7 @@ test('consultar usuarios ', async () => {
 
     await dbConnection();
 
-    const result = await graphql(id, schema, query, null, context, variables);
+    const result = graphql(id, schema, query, null, context, variables);
 
     expect(result).toEqual(esperado);
 

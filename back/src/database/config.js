@@ -1,4 +1,5 @@
-import mongoose, { connection} from 'mongoose';
+import mongoose from 'mongoose';
+
 //const url = 'mongodb+srv://admin:Admin.1234@ventas-c3.afuch.mongodb.net/DB_Prodevs';
 
 export const dbConnection = async () => {
@@ -7,10 +8,10 @@ export const dbConnection = async () => {
 
     const connectionString = NODE_ENV === "test" ? MONGO_DB_TEST : MONGO_DB_PROD;
 
-    console.log(connectionString);
+    console.log("esta es la conexión", connectionString);
 
     try {
-        await mongoose.connect(connectionString);
+        await mongoose.connect("mongodb+srv://admin:Admin.1234@ventas-c3.afuch.mongodb.net/DB_Prodevs");
         console.log('DB online');
         
     } catch (error) {
