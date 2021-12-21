@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { resolvers } from "./resolvers";
 
-const typeDefs = `
+export const typeDefs = `
     type Query {
       Login(email : String!, password : String!): String
       Usuarios : [Usuario]

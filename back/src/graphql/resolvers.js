@@ -38,11 +38,12 @@ export const resolvers = {
             return await Usuarios.findById(id);
         },
 
-        // async Usuarios(_, args, context) {
-        //     if (context.user.auth) {
+        // async Usuarios(_, args, {user}) {
+        //     console.log("Usuarios", user)
+        //     if (user.auth) {
         //         return await Usuarios.find().populate("leader");
         //     } else {
-        //         return null;
+        //         throw new Error ("Not authenticate");
         //     }
         // },
 
