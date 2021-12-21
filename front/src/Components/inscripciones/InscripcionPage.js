@@ -19,7 +19,7 @@ const InscripcionPage = () => {
                             <div className="card card-primary card-outline">
                                 <div className="card-header flex">
                                     <a class="navbar-brand">INSCRIPTION TABLE </a>
-                                    <Link to={`/details`}>
+                                    <Link to={`/projects`}>
                                         <a class="btn btn-primary btnPrevious" >&laquo; Back</a>
                                     </Link>
 

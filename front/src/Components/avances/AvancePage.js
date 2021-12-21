@@ -16,7 +16,7 @@ export const AvancePage = () => {
                         <div className="col-lg-12">
                             <div className="card card-primary card-outline">
                                 <div className="card-header flex">
-                                    <Link to={`/details`}>
+                                    <Link to={`/projects`}>
                                         <a class="btn btn-primary btnPrevious" >&laquo; Back</a>
                                     </Link>
                                     {/* <a class="navbar-brand">PROGRESS TABLE </a> */}

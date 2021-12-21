@@ -1,29 +1,54 @@
 //escribiendo rafc se genera codigo
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery, useMutation } from '@apollo/client';
-import { Link, NavLink, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import GET_PROJECTS from '../../../Apollo/gql/getProjects';
 import DELETE_PROJECT from '../../../Apollo/gql/deleteProject';
 import SET_INSCRIPTION from '../../../Apollo/gql/setInscription';
 import Modal from 'react-modal';
+import { cleanup } from '@testing-library/react';
+import { Input } from 'reactstrap';
 
 export const ListarProyectos = () => {
-
-    const { action } = useParams();
+    // const navigate = useNavigate();
+    // useEffect(()=> {
+    //     if (data) {
+    //         console.log('data', data);
+            
+    //         navigate('/projects', {
+    //             replace: true
+    //         })
+    //     }
+    // }, [data])
+    
+    // useEffect(() => {
+    //     effect
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, [Input])(() => {
+    //     if (data) {
+    //         console.log('data', data);
+    //         Navigate('/projects', {
+    //             replace: true
+    //         })
+    //     }
+    // }, [data])
 
     const { loading, data, error } = useQuery(GET_PROJECTS);
     const [deleteProject] = useMutation(DELETE_PROJECT);
+    const [addInscription] = useMutation(SET_INSCRIPTION);
  
-
     const handleDelete = (id) => {
-        //console.log(action);
         deleteProject({ variables: { id } });
     }
 
-    const handleProgress = (id) => {
-        console.log('si me trae el id y abre el modal', id);
-        // deleteProject({ variables: { id } });
+    const handleInscription = (id_Dproject, student) => {
+        addInscription({ variables: { id_Dproject, student } })
+        console.log(id_Dproject, student)
+
     }
+
 
 
 
@@ -95,7 +120,7 @@ export const ListarProyectos = () => {
                                             {/* onClick={openModal} */}
                                                 <button class="btn btn-primary btn-sm rounded-0"  
                                                 onClick={() =>{
-                                                    handleProgress(proyecto.id); 
+                                                    handleInscription(proyecto.id, '61c10e2c1123f8c2d1be0b3e'); 
                                                     openModal();
                                                     }} 
                                                     type="button" data-toggle="tooltip" data-placement="top" title="Add me"><i class="fa fa-table"></i></button>
@@ -130,7 +155,7 @@ export const ListarProyectos = () => {
 
                 <ul class="list-inline m-0">
                     <li class="list-inline-item">
-                        <button type="button" onClick={handleProgress} class="btn btn-success">Add me!</button> 
+                        <button type="button" onClick={handleInscription} class="btn btn-success">Add me!</button> 
                     </li>
                     <li class="list-inline-item">
                         <button type="button" onClick={closeModal} class="btn btn-danger"  >close</button>

@@ -1,14 +1,17 @@
 const { Schema, model } = require('mongoose');
 
-const InscripcionSchema = Schema({
-   
-  
+const InscripcionSchema = Schema({  
+
+    id_inscription:{
+        type: String,
+
+    },
     student: {
         type: Schema.Types.ObjectId,
         ref: "Usuario"
     },
 
-    idproject: {
+    id_Dproject: {
         type: Schema.Types.ObjectId,
         ref: "Proyecto"
     },

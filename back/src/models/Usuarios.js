@@ -16,10 +16,10 @@ const UsuarioSchema = Schema({
         //required: true
     },
 
-    // last_name_user:{
-    //     type: String,
-    //     //required: true
-    // },
+    last_name_user:{
+        type: String,
+        //required: true
+    },
 
     password: {
         type: String,

@@ -77,7 +77,7 @@ export const resolvers = {
         // },
 
         Inscripciones() {
-            return Inscripciones.find().populate('idproject').populate('student')   
+            return Inscripciones.find().populate('id_Dproject')
             },
 
         // async Inscripciones(_, args, context) {
