@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink, useParams } from 'react-router-dom'
 import ListarInscripciones from './listar/ListarInscripciones';
-
+import EditarInscripcion from './editar/EditarInscripcion';
 
 
 

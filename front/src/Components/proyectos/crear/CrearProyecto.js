@@ -1,8 +1,10 @@
 import { useMutation } from '@apollo/client';
 import React, { useEffect } from 'react'
-import { useForm,  useNavigate  } from 'react-hook-form';
+import { useForm, useNavigate } from 'react-hook-form';
 import SET_PROJECT from '../../../Apollo/gql/setProject';
 import GET_PROJECTS from '../../../Apollo/gql/getProjects';
+import { Dropdown } from 'bootstrap';
+
 
 const CrearProyecto = () => {
 
@@ -15,7 +17,7 @@ const CrearProyecto = () => {
     });
 
     const IDprueba = '61c01439e46e74fb1ec51136';
-    
+
 
     // useEffect(() => {
     //     if (data) {
@@ -40,14 +42,16 @@ const CrearProyecto = () => {
                 <input type="text" className='form-control mb-3' placeholder="ID project" {...register("id_project", { required: true })} />
                 <input type="text" className='form-control mb-3' placeholder="Project" {...register("project", { required: true })} />
                 <input type="text" className='form-control mb-3' placeholder="Leader" {...register("leader", { required: true })} />
+
                 <input type="text" className='form-control mb-3' placeholder="General objectives" {...register("general_objectives", { required: true })} />
                 <input type="text" className='form-control mb-3' placeholder="Budget" {...register("budget", { required: true })} />
-                {/* <select className='form-control mb-3' {...register("rol", { required: true })}>
+                <select className='form-control mb-3' {...register("rol", { required: true })}>
                     <option value="61b3da5944cb44958d979092">lider</option>
                     <option value="61b3da6a44cb44958d979097">estudiante</option>
-                </select> */}
+                </select>
 
             </div>
+            
             <input type="submit" />
 
         </form>
