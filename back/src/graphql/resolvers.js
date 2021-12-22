@@ -20,11 +20,14 @@ export const resolvers = {
             if (validarPassword) {
                 const token = await generarJwt(usuario.id, usuario.role)
                 console.log("Login exitoso")
-                return token;
+                return {token,
+                    usuario: usuario.name_user,
+                    id: usuario.id,
+                    role: usuario.role};
             }
             else {
-                console.log("Usuario o contraseña incorrecto")
-                //return "Usuario o contraseña incorrecto";
+                
+                return "Usuario o contraseña incorrecto";
             }
         },
 
@@ -34,16 +37,25 @@ export const resolvers = {
             
             },
 
-        // async Usuarios(_, args, context) {
-        //     if (context.user.auth) {
+        async UsuarioByID(_,{id}){
+            return await Usuarios.findById(id);
+        },
+
+        // async Usuarios(_, args, {user}) {
+        //     console.log("Usuarios", user)
+        //     if (user.auth) {
         //         return await Usuarios.find().populate("leader");
         //     } else {
-        //         return null;
+        //         throw new Error ("Not authenticate");
         //     }
         // },
 
         Proyectos() {
         return Proyectos.find().populate('leader')
+        },
+
+        async proyectoById(_, {id}) {
+            return await Proyectos.findById(id).populate('leader');
         },
 
     
@@ -73,7 +85,7 @@ export const resolvers = {
         // },
 
         Inscripciones() {
-            return Inscripciones.find().populate('idproject').populate('student')   
+            return Inscripciones.find().populate('id_Dproject')
             },
 
         // async Inscripciones(_, args, context) {
@@ -111,10 +123,12 @@ export const resolvers = {
         },
         async updateProfileUser(_, { user }) {
             return await Usuarios.findByIdAndUpdate(user.id, {
-                id_user: user.role,
+                id_user: user.id_user,
                 name_user: user.name_user,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                role: user.role,
+                state_user: user.state_user
             },
                 { new: true });
         },
@@ -141,15 +155,18 @@ export const resolvers = {
                     general_objectives: project.general_objectives,
                     specific_objectives: project.specific_objectives,
                     budget: project.budget,
+                    state_project:project.state_project,
+                    phase:project.phase
                 },
                 { new: true });
         },
+        
         async deleteProject(_, args) {
             return await Proyectos.findByIdAndDelete(args.id)
         },
-        async Project1(id) {
-            return await Proyectos.findOne(id)
-        },
+
+
+    
 
         /*Mutation Inscripciones */
         async addInscription(_, { inscription }) {

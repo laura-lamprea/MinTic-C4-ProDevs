@@ -1,10 +1,18 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
 
+    const auth = useAuth();
+    const navigate = useNavigate();
+
+    let user1 =JSON.parse(localStorage.getItem("user"))
+    
     const handleLogout = () => {
-        console.log('logout')
+        navigate('/Login', {
+            replace: true
+        });
     }
 
     return (
@@ -40,7 +48,7 @@ const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
 
                     <span className='nav-item nav-link text-info'>
-                        Usuario1
+                        {user1.usuario}
                     </span>
 
                     <button

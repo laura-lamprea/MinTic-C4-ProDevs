@@ -29,7 +29,7 @@ const UsuarioSchema = Schema({
     role: {
         type: String,
         default: 'Pending',
-        enum:['Administrador', 'Lider', 'Estudiante']
+        enum:['Admin', 'Leader', 'Student']
     },
 
     state_user: {

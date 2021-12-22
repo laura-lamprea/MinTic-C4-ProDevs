@@ -40,7 +40,8 @@ const ProyectoSchema = Schema({
 
     leader: {
         type: Schema.Types.ObjectId,
-        ref: "Usuario"
+        ref: "Usuario",
+        
     },
     
     state_project: {
@@ -51,7 +52,7 @@ const ProyectoSchema = Schema({
 
     phase: {
         type: String,
-        enum:['Initiated','Developing', 'Completed'],
+        enum:['Initiated','Developing', 'Completed','Null'],
         default: 'Null'
     },
 

@@ -1,11 +1,13 @@
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { resolvers } from "./resolvers";
 
-const typeDefs = `
+export const typeDefs = `
     type Query {
-      Login(email : String!, password : String!): String
+      Login(email : String!, password : String!): Auth
       Usuarios : [Usuario]
+      UsuarioByID(id:ID!): Usuario
       Proyectos : [Proyecto]
+      proyectoById(id: ID!) : Proyecto
       Inscripciones : [Inscripcion]
       Avances: [Avance]
     }
@@ -16,7 +18,7 @@ const typeDefs = `
       updateProfileUser(user: usuarioInput): Usuario
       deleteUser(id:ID!): Usuario
 
-      Project1(id:String!): Proyecto
+    
       addProject(project: proyectoInput): Proyecto
       updateProject(project: proyectoInput): Proyecto
       deleteProject(id:ID!): Proyecto
@@ -27,6 +29,13 @@ const typeDefs = `
 
       addProgress(progress: avanceInput): Avance
     }
+
+    type Auth {
+      token: String,
+      usuario: String,
+      id:String
+      role: String
+  }
 
     type Usuario {
       id: ID,
@@ -77,16 +86,18 @@ const typeDefs = `
     }
 
     type Inscripcion {
-      id: ID
-      idproject: Proyecto,
+      id: ID,
+      id_inscription: String,
+      id_Dproject: Proyecto,
       student: Usuario,
       state_inscription: String,
       date_admission: String,
       egress_date: String,
     }
     input inscripcionInput {
-      id: ID
-      idproject: ID,
+      id: ID,
+      id_inscription: String,
+      id_Dproject: ID,
       student: ID,
       state_inscription: String,
       date_admission: String,
@@ -96,6 +107,7 @@ const typeDefs = `
     type Avance {
       id: ID
       n_project: Proyecto,
+      student_p:Usuario,
       date_progress: String,
       descript: String,
       obsers: String,
@@ -103,6 +115,7 @@ const typeDefs = `
     input avanceInput {
       id: ID
       n_project: ID,
+      student_p:ID,
       date_progress: String,
       descript: String,
       obsers: String,

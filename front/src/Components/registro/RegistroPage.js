@@ -1,24 +1,39 @@
-import { useMutation } from '@apollo/client'
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import SET_USUARIO from '../../Apollo/gql/setUsuario'
-import LogoProdevs from '../media/Logo_ProDevs.png'
-import './Registro.css'
+import { useMutation } from '@apollo/client';
+import React, {useEffect} from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import SET_USUARIO from '../../Apollo/gql/setUsuario';
+import GET_USUARIOS from '../../Apollo/gql/getUsers';
+import LogoProdevs from '../media/Logo_ProDevs.png';
+import './Registro.css';
 
 const RegistroPage = () => {
 
     const { register, handleSubmit } = useForm();
 
-    const [addUser] = useMutation(SET_USUARIO);
+    const [addUser, { data, loading, error}] = useMutation(SET_USUARIO, {
+        refetchQueries: [{
+            query: GET_USUARIOS
+        }]
+    });
 
-    const handleCreate = (data) => {
+    // useEffect(() => {
+    //     if (data) {
+    //         console.log('data', data);
+            
+    //         navigate('/users', {
+    //             replace:true
+    //         })
+    //     }
+    // }, [data])
+
+    const handleCreate = (args) => {
         console.log("crear");
         console.log(data);
 
-        const { name_user, last_name_user, email, password, role, state_user } = data;
+        const { name_user, last_name_user, email, password, role, state_user } = args;
 
         addUser({ variables: { name_user, last_name_user, email, password, role, state_user } })
-
 
     }
 
@@ -35,15 +50,14 @@ const RegistroPage = () => {
             <form onSubmit={handleSubmit(handleCreate)}>
 
                 <div className="form-group">
-                    {/* <input type="text"  class="input_field" className='form-control mb-3' placeholder="ID_user" {...register("id_user", { required: true })} />     */}
-                    <input type="text"  class="input_field" className='form-control mb-3' placeholder="Nombre" {...register("name_user", { required: true })} />
+                    <input type="text"  class="input_field" className='form-control mb-3' placeholder="Nombre" {...register("name_user", { required: true })} />  
                     <input type="text"  class="input_field" className='form-control mb-3' placeholder="Apellido" {...register("last_name_user", { required: true })} />
                     <input type="text"  class="input_field" className='form-control mb-3' placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                     <input type="password"  class="input_field" className='form-control mb-3' placeholder="Password" {...register("password", { required: true })} />
                     <select placeholder=''  class="input_field" className='form-control mb-3' {...register("role", { required: true })}>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Lider">Lider</option>
-                        <option value="Estudiante">Estudiante</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Leader">Leader</option>
+                        <option value="Student">Student</option>
 
                     </select>
 
