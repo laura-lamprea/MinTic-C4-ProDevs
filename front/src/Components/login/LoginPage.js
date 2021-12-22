@@ -1,117 +1,137 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import GET_login from '../../Apollo/gql/login';
 import './login.css';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
+import notie from 'notie';
+import 'notie/dist/notie.css';
 
 const LoginPage = () => {
 
+    const auth = useAuth();
     const navigate = useNavigate();
-    const { register, handleSubmit } = useForm()
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    // const { loading, error, data } = useQuery(GET_login, { variables: { email, password }, });
+    const [Login, { data, loading, error }] = useLazyQuery(GET_login);
 
 
-    const Loginn = ({ email, password }) => {
-        const { loading, error, data } = useQuery(GET_login, { variables: { email, password }, });
-
-        if (loading) return null;
-        if (error) return `Error! ${error}`;
-
-        return (
-            console.log('entro2' + data.Login)
-        );
-    }
-
+    useEffect(() => {
+        console.log(data)
+        if (data) {
+            if (data.Login){
+            auth.setToken(data.Login.token);
+            auth.setUser({ usuario: data.Login.usuario, rol: data.Login.role, id: data.Login.id });
+            if (data.Login.role == "Leader") {
+                navigate('/users');
+            }
+            if (data.Login.role == "Student") {
+                navigate('/projects');
+            }
+            if (data.Login.role == "Admin") {
+                navigate('/users');
+            }
+            }else{
+                navigate('/login');
+            notie.alert({
+                type: 'error',
+                text: "contraseña incorrecta",
+            });
+            }
+        } 
+    }, [data, navigate, auth]);
 
 
     const HandleLogin = (e) => {
         // agregar una nueva ruta al stack de navegacion        // navigate('/usuarios')
-        const email=e.email
-        const password=e.password
+        const { email, password } = e;
         // reemplazar el historial para no poder regresar a la ruta previa
-
-        const rol = "leaer"
-        if (rol == "leader") {
-            navigate('/projects', {
-                replace: true
-            })
-        }
-        else {
-            navigate('/users', {
-                replace: true
-            })
-            console.log('login');
-        }
-
+        Login({ variables: { email, password } });
+        console.log("token")
     }
 
     const HandleLogin2 = (e) => {
-        
+
         navigate('/register');
 
     }
 
     return (
-        <main className="mainInicioSesion">
-            <section className="section1NombreEmpresa sectionInicioSesion">
-                <div>
-                    <h1> PRODEVS
-                    </h1>
-                    <p className ="description"><br />
-                    This platform is designed for you to manage your academic projects in an easy and intuitive way.
-                    </p>
-            
-                </div>
-            </section>
-            <section className="section2 sectionInicioSesion" >
-                <div className="section2ParteDos">
-                    <h2>Log in to Prodevs</h2>
-                                     
-                    <div className="input">
-                        <i class="fas fa-users estilo"></i>
-                        <h4>¡Welcome!</h4>
-                        <i class="fas fa-user-check pad"></i><input type="text" id="user" placeholder="Email" className="input_inicio" required />
+        <form onSubmit={handleSubmit(HandleLogin)}>
+            <main className="mainInicioSesion">
+                <section className="section1NombreEmpresa sectionInicioSesion">
+                    <div>
+                        <h1> PRODEVS
+                        </h1>
+                        <p className="description"><br />
+                            This platform is designed for you to manage your academic projects in an easy and intuitive way.
+                        </p>
+
                     </div>
-{/* 
-                    {errors.email?.type === "required" && <div className="alert alert-danger mt-2" role="alert">
-                            el correo es obligatorio
-                        </div>}
+                </section>
+                <section className="section2 sectionInicioSesion" >
+                    <div className="section2ParteDos">
+                        <h2>Log in to Prodevs</h2>
 
-                        {errors.email?.type === "pattern" && <div className="alert alert-danger mt-2" role="alert">
-                            el correo no tiene el formto correcto
-                        </div>} */}
+                        <div className="input">
+                            <i class="fas fa-users estilo"></i>
+                            <h4>¡Welcome!</h4>
+                            <i class="fas fa-user-check pad"></i>
+                            <input
+                                type="text"
+                                id="user"
+                                className="input_inicio"
+                                placeholder="Email"
+                                name="password"
+                                {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+                            />
 
-                    <div className="input">
-                        <i class="fas fa-unlock pad"></i>
-                        <input className="input_inicio" type="password" placeholder="Password" id="password" required />
-                    </div>
+                        </div>
 
-                  
-                        {/* <div className="form-group mt-2">
+                        <div className="input">
+                            <i class="fas fa-unlock pad"></i>
                             <input
                                 type="password"
-                                className="form-control"
-                                placeholder="Contraseña"
+                                className="input_inicio"
+                                id="password"
+                                placeholder="Password"
                                 name="password"
                                 {...register("password", { required: true })}
                             />
+
                         </div>
 
-                        {errors.user && <div className="alert alert-danger mt-2" role="alert">
+                        {errors.password && <div className="alert alert-danger mt-2" role="alert">
                             el password es obligatorio
-                        </div>} */}
-                   
-                        <input type="button" value="¡Ingresar ahora!" onClick={HandleLogin} className="boton boton_ingreso"  />
-                    <div>
+                        </div>}
+
+                        <div className="form-group mt-3">
+                            {!loading && <input
+                                type="submit"
+                                className="btnSubmit"
+                                value="Login"
+                            />}
+                            {loading && <button className="btnSubmit" type="button" disabled>
+                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                            </button>}
+                        </div>
+
                         <i class="fas fa-users estilo"></i>
                         <h5>¿No estas registrado?</h5>
-                        <input type="button" value="Registrarme" onClick={HandleLogin2} className="boton boton_ingreso"  />
+                        <input type="button" value="Registrarme" onClick={HandleLogin2} className="boton boton_ingreso" />
                     </div>
+                    {error && <div className="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrectos
+                    </div>}
 
-
-                </div> 
-            </section>
-        </main>
+                </section>
+                
+            </main>
+        </form>
+        
     )
 }
 

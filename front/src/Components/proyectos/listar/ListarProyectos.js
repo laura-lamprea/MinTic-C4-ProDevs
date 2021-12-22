@@ -10,41 +10,29 @@ import { cleanup } from '@testing-library/react';
 import { Input } from 'reactstrap';
 
 export const ListarProyectos = () => {
-    // const navigate = useNavigate();
-    // useEffect(()=> {
-    //     if (data) {
-    //         console.log('data', data);
-            
-    //         navigate('/projects', {
-    //             replace: true
-    //         })
-    //     }
-    // }, [data])
-    
-    // useEffect(() => {
-    //     effect
-    //     return () => {
-    //         cleanup
-    //     }
-    // }, [Input])(() => {
-    //     if (data) {
-    //         console.log('data', data);
-    //         Navigate('/projects', {
-    //             replace: true
-    //         })
-    //     }
-    // }, [data])
 
     const { loading, data, error } = useQuery(GET_PROJECTS);
-    const [deleteProject] = useMutation(DELETE_PROJECT);
+    const [deleteProject, iddara] = useMutation(DELETE_PROJECT);
     const [addInscription] = useMutation(SET_INSCRIPTION);
+    const navigate = useNavigate();
+   
  
     const handleDelete = (id) => {
         deleteProject({ variables: { id } });
     }
+    useEffect(() => {
+        if (data) {
+            console.log('data'); 
+            navigate('/projects', {
+                replace: true
+            })
+                      
+                 }
+    }, [loading,navigate,deleteProject,addInscription]);
 
     const handleInscription = (id_Dproject, student) => {
         addInscription({ variables: { id_Dproject, student } })
+        
         console.log(id_Dproject, student)
 
     }
