@@ -9,5 +9,6 @@ La arquitectura de la aplicación web que se implementará en el proyecto se ilu
 Quienes conforman el equipo de trabajo de ProDevs se enumeran a continuación:
 1. Laura Lamprea Merchán - Ing. Mecatrónica de Bogotá.
 2. Diego Alejandro Moreno Rozo - Ingeniero en producción de Bogotá.
+3. pepito perez
 
 
