@@ -22,7 +22,7 @@ export const ListarProyectos = () => {
     }
     useEffect(() => {
         if (data) {
-            console.log(iddara); 
+            console.log('data'); 
             navigate('/projects', {
                 replace: true
             })
