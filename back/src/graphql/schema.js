@@ -3,7 +3,7 @@ import { resolvers } from "./resolvers";
 
 export const typeDefs = `
     type Query {
-      Login(email : String!, password : String!): String
+      Login(email : String!, password : String!): Auth
       Usuarios : [Usuario]
       UsuarioByID(id:ID!): Usuario
       Proyectos : [Proyecto]
@@ -29,6 +29,13 @@ export const typeDefs = `
 
       addProgress(progress: avanceInput): Avance
     }
+
+    type Auth {
+      token: String,
+      usuario: String,
+      id:String
+      role: String
+  }
 
     type Usuario {
       id: ID,

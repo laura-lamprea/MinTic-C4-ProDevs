@@ -31,7 +31,7 @@ const ContentRoutes = () => {
                         <Route path="/register" element={<RegistroPage />} />
                         <Route path="/progress" element={<AvancePage />} />
                         <Route path="/progress/:action" element={<AvancePage />} />
-                        <Route path="/" element={< LoginPage />} />
+                        {/* <Route path="/" element={< LoginPage />} /> */}
                     </Routes>
                 </div>
             </div>

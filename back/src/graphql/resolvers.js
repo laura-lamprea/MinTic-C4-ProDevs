@@ -20,11 +20,14 @@ export const resolvers = {
             if (validarPassword) {
                 const token = await generarJwt(usuario.id, usuario.role)
                 console.log("Login exitoso")
-                return token;
+                return {token,
+                    usuario: usuario.name_user,
+                    id: usuario.id,
+                    role: usuario.role};
             }
             else {
-                console.log("Usuario o contraseña incorrecto")
-                //return "Usuario o contraseña incorrecto";
+                
+                return "Usuario o contraseña incorrecto";
             }
         },
 
