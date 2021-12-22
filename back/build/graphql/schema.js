@@ -1,0 +1,141 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.typeDefs = exports.default = void 0;
+
+var _schema = require("@graphql-tools/schema");
+
+var _resolvers = require("./resolvers");
+
+const typeDefs = `
+    type Query {
+      Login(email : String!, password : String!): String
+      Usuarios : [Usuario]
+      UsuarioByID(id:ID!): Usuario
+      Proyectos : [Proyecto]
+      proyectoById(id: ID!) : Proyecto
+      Inscripciones : [Inscripcion]
+      Avances: [Avance]
+    }
+
+    type Mutation {
+      addUser(user: usuarioInput): Usuario
+      updateStateUser(user: usuarioInput): Usuario
+      updateProfileUser(user: usuarioInput): Usuario
+      deleteUser(id:ID!): Usuario
+
+    
+      addProject(project: proyectoInput): Proyecto
+      updateProject(project: proyectoInput): Proyecto
+      deleteProject(id:ID!): Proyecto
+
+      addInscription(inscription: inscripcionInput): Inscripcion
+      updateStateInscriptions(inscription: inscripcionInput): Inscripcion
+      deleteIncriptions(id:ID!): Inscripcion
+
+      addProgress(progress: avanceInput): Avance
+    }
+
+    type Usuario {
+      id: ID,
+      id_user: String,       
+      name_user: String,
+      last_name_user: String,
+      email: String,
+      password: String,
+      role: String,
+      state_user: String,
+    }
+    input usuarioInput {
+      id: ID,
+      id_user: String,  
+      name_user: String,
+      last_name_user: String,
+      email: String,
+      password: String,
+      role: String,
+      state_user: String,
+    }
+        
+    type Proyecto {
+      id: ID,
+      id_project: String,
+      project: String,
+      general_objectives: String,
+      specific_objectives: [Item],
+      budget: String,
+      date_start: String,
+      date_finish: String,
+      leader: Usuario,
+      state_project: String,
+      phase: String,
+    }
+    input proyectoInput {
+      id: ID,
+      id_project: String,
+      project: String,
+      general_objectives: String,
+      specific_objectives: [ItemInput],
+      budget: String,
+      date_start: String,
+      date_finish: String,
+      leader: ID,
+      state_project: String,
+      phase: String,
+    }
+
+    type Inscripcion {
+      id: ID,
+      id_inscription: String,
+      id_Dproject: Proyecto,
+      student: Usuario,
+      state_inscription: String,
+      date_admission: String,
+      egress_date: String,
+    }
+    input inscripcionInput {
+      id: ID,
+      id_inscription: String,
+      id_Dproject: ID,
+      student: ID,
+      state_inscription: String,
+      date_admission: String,
+      egress_date: String,
+    }
+
+    type Avance {
+      id: ID
+      n_project: Proyecto,
+      student_p:Usuario,
+      date_progress: String,
+      descript: String,
+      obsers: String,
+    }
+    input avanceInput {
+      id: ID
+      n_project: ID,
+      student_p:ID,
+      date_progress: String,
+      descript: String,
+      obsers: String,
+    }
+
+    type Item {
+      item: String
+    }
+    input ItemInput {
+      item: String
+    }
+   
+`;
+exports.typeDefs = typeDefs;
+
+var _default = (0, _schema.makeExecutableSchema)({
+  typeDefs: typeDefs,
+  resolvers: _resolvers.resolvers
+});
+
+exports.default = _default;
+//# sourceMappingURL=schema.js.map
