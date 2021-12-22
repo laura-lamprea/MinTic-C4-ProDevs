@@ -54,16 +54,17 @@ const ListarUsuarios = () => {
                                         </ul>
                                     </td> */}
                                     <td>
-                                        <NavLink className="btn btn-primary mr" to={`/users/${usuario.id}`}>
-                                            Editar
-                                        </NavLink>
-                                        <button type="button" className="btn btn btn-danger mr-3" data="data de pruebas" onClick={() => handleDelete(usuario.id)}>
-                                            Eliminar
-                                        </button>
-
+                                    <ul class="list-inline m-0">
+                                            <li class="list-inline-item">
+                                                <Link to={`/users/${usuario.id}`}>
+                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" title="Edit" ><i class="fa fa-edit"></i></button>
+                                                </Link>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <button class="btn btn-danger btn-sm rounded-0" type="button" onClick={() => handleDelete(usuario.id)} data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                            </li>
+                                        </ul>
                                     </td>
-                                        
-                                   
                                 </tr>
                             ))
                         }
